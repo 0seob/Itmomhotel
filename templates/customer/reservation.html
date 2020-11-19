@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Hiroto Template">
+  <meta name="keywords" content="Hiroto, unica, creative, html">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Strong Gum Hotel</title>
+
+  <!-- Css Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/elegant-icons.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/nice-select.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/jquery-ui.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/slicknav.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/style.css')}}">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="./index"><img src="{{ url_for('static', filename='customer/img/logo.png') }}" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__btn__widget">
+            <a href="#">바로 예약 <span class="arrow_right"></span></a>
+        </div>
+        <div class="offcanvas__widget">
+            <ul>
+                <li><span class="icon_pin_alt"></span> 경기도 안산시 상록구 한양대학로 55</li>
+                <li><span class="icon_phone"></span> 031-400-1005</li>
+            </ul>
+        </div>
+        <div class="offcanvas__language">
+            <img src="{{ url_for('static', filename='customer/img/kf.png') }}" alt="">
+            <span>한국어</span>
+            <i class="fa fa-angle-down"></i>
+            <ul>
+                <li>한국어</li>
+                <li>English</li>
+            </ul>
+        </div>
+        <div class="offcanvas__auth">
+            <ul>
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <ul class="header__top__widget">
+                            <li><span class="icon_pin_alt"></span> 경기도 안산시 상록구 한양대학로 55</li>
+                            <li><span class="icon_phone"></span> 031-400-1005</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="header__top__right">
+                            <div class="header__top__auth">
+                                <ul>
+                                    <li><a href="#">로그인</a></li>
+                                    <li><a href="#">회원가입</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__language">
+                                <img src="{{ url_for('static', filename='customer/img/kf.png') }}" alt="">
+                                <span>한국어</span>
+                                <i class="fa fa-angle-down"></i>
+                                <ul>
+                                    <li><a href="./index">한국어</li>
+                                    <li><a href="./indexEng">English</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__nav__option">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="header__logo">
+                            <a href="./index"><img src="{{ url_for('static', filename='customer/img/logo2.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="header__nav">
+                            <nav class="header__menu">
+                                <ul class="menu__class">
+                                    <li class="active"><a href="./index">홈으로</a></li>
+                                    <li><a href="./rooms">객실정보</a></li>
+                                    <li><a href="./about">호텔잇몸 소개</a></li>
+                                    <li><a href="#">상세정보</a>
+                                        <ul class="dropdown">
+                                            <li><a href="./room-details">방 세부정보</a></li>
+                                            <li><a href="./blog-details">블로그 세부정보</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="./blog">소식</a></li>
+                                    <li><a href="./contact">고객문의</a></li>
+                                </ul>
+                            </nav>
+                            <div class="header__nav__widget">
+                                <a href="#">바로 예약 <span class="arrow_right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open">
+                    <span class="fa fa-bars"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Blog Hero Begin -->
+    <section class="blog-hero spad set-bg" data-setbg="{{ url_for('static', filename='customer/img/blog/details/details-bg.jpg') }}">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-12 text-center">
+                      <form action="#" class="filter__form">
+                          <div class="filter__form__item">
+                              <p>체크 인</p>
+                              <div class="filter__form__datepicker">
+                                  <span class="icon_calendar"></span>
+                                  <input type="text" class="datepicker_pop check__in">
+                                  <i class="arrow_carrot-down"></i>
+                              </div>
+                          </div>
+                          <div class="filter__form__item">
+                              <p>체크 아웃</p>
+                              <div class="filter__form__datepicker">
+                                  <span class="icon_calendar"></span>
+                                  <input type="text" class="datepicker_pop check__out">
+                                  <i class="arrow_carrot-down"></i>
+                              </div>
+                          </div>
+                          <div class="filter__form__item filter__form__item--select">
+                              <p>어른</p>
+                              <div class="filter__form__select">
+                                  <span class="icon_group"></span>
+                                  <select>
+                                      <option value="">1명</option>
+                                      <option value="">2명</option>
+                                      <option value="">3명</option>
+                                      <option value="">4명</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="filter__form__item filter__form__item--select">
+                              <p>어린이</p>
+                              <div class="filter__form__select">
+                                  <span class="icon_group"></span>
+                                  <select>
+                                      <option value="">1명</option>
+                                      <option value="">2명</option>
+                                      <option value="">3명</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <button type="button" onclick="searchemptyroom">검색</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Hero End -->
+
+    <!-- Room reservation -->
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-12 text-center">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Class</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Capacity</th>
+                            <th scope="col">예약</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="col"><img src="{{ url_for('static', filename='customer/img/kf.png') }}" class="img-responsive"></th>
+                            <th scope="col">Suite</th>
+                            <th scope="col">Single</th>
+                            <th scope="col">1</th>
+                            <th scope="col"><button class="btn btn-outline-dark" type="submit">예약하기</button></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><img src="{{ url_for('static', filename='customer/img/kf.png') }}" class="img-responsive"></th>
+                            <th scope="col">Suite</th>
+                            <th scope="col">Double</th>
+                            <th scope="col">2</th>
+                            <th scope="col"><button class="btn btn-outline-dark" type="submit">예약하기</button></th>
+                        </tr>
+                        <tr>
+                            <th scope="col"><img src="{{ url_for('static', filename='customer/img/kf.png') }}" class="img-responsive"></th>
+                            <th scope="col">Deluxe</th>
+                            <th scope="col">Double</th>
+                            <th scope="col">2</th>
+                            <th scope="col"><button class="btn btn-outline-dark" type="submit">예약하기</button></th>
+                        </tr>
+                    </tbody>
+               </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="{{ url_for('static', filename='customer/img/footer-bg.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="logo__carousel owl-carousel">
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-1.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-2.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-3.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-4.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-5.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer__content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="#"><img src="{{ url_for('static', filename='customer/img/logo.png') }}" alt=""></a>
+                            </div>
+                            <h4>(123) 456-78-91096</h4>
+                            <ul>
+                                <li>Ernser Vista Suite 437, NY</li>
+                                <li>Info.colorlib@gmail.com</li>
+                            </ul>
+                            <div class="footer__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1 col-md-5 offset-md-1 col-sm-6">
+                        <div class="footer__widget">
+                            <h4>Quick Link</h4>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Booking</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Review</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Our Room</a></li>
+                                <li><a href="#">Restaurants</a></li>
+                                <li><a href="#">Payments</a></li>
+                                <li><a href="#">Events</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-8 col-sm-12">
+                        <div class="footer__newslatter">
+                            <h4>Subscribe our newlatester</h4>
+                            <form action="#">
+                                <input type="text" placeholder="Your E-mail Address">
+                                <button type="submit">Subscribe</button>
+                            </form>
+                            <div class="footer__newslatter__find">
+                                <h5>Find Us:</h5>
+                                <div class="footer__newslatter__find__links">
+                                    <a href="#"><i class="fa fa-tripadvisor"></i></a>
+                                    <a href="#"><i class="fa fa-map-o"></i></a>
+                                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                                    <a href="#"><i class="fa fa-forumbee"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        </div>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="col-lg-5 col-md-5">
+                        <ul class="footer__copyright__links">
+                            <li><a href="#">Terms Of Use</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{{ url_for('static', filename='customer/js/jquery-3.3.1.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/bootstrap.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/jquery.nice-select.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/jquery-ui.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/jquery.slicknav.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/owl.carousel.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/main.js') }}" > </script>
+</body>
+
+</html>
