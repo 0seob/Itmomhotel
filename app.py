@@ -231,11 +231,11 @@ def regist():
             if not data:
                 conn.commit()
                 print (data)
-                return "Register Success"
+                return render_template('manager/register_success.html', error=error)
             else:
                 conn.rollback()
                 print (data)
-                return "Register Failed"
+                return render_template('manager/register_fail.html', error=error)
 
 
         cursor.close()
