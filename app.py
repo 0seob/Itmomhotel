@@ -244,7 +244,7 @@ def delete():
         conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
         cursor = conn.cursor()
 
-        query = "SELECT username FROM userinfo WHERE email = '%s' " % (email)
+        query = "SELECT id FROM userinfo WHERE email = '%s' " % (email)
 
         cursor.execute(query)
         data = cursor.fetchall()
