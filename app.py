@@ -71,13 +71,10 @@ def memployee():
     db = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
     cur = db.cursor()
 
-    sql = "select * from userinfo"
+    sql = "select Employee_Name  , Gender , Account_Number  , Salary  , On_work , Department , Grade, Room_Floor from Employee natural join Employee_Info"
     cur.execute(sql)
 
     data_list = cur.fetchall()
-
-    print(data_list[0])
-    print(data_list[1])
 
     return render_template('manager/employee.html', data_list=data_list)
 

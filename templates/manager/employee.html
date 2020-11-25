@@ -109,10 +109,14 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>직원ID</th>
-                                                <th>이름</th>
-                                                <th>직급</th>
+                                                <th>직원이름</th>
+                                                <th>성별</th>
                                                 <th>계좌번호</th>
+                                                <th>연봉</th>
+                                                <th>근무</th>
+                                                <th>소속</th>
+                                                <th>직급</th>
+                                                <th>담당층수</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -122,6 +126,11 @@
                                                 <td>{{ i[1] }}</td>
                                                 <td>{{ i[2] }}</td>
                                                 <td>{{ i[3] }}</td>
+                                                <td>{{ i[4] }}</td>
+                                                <td>{{ i[5] }}</td>
+                                                <td>{{ i[6] }}</td>
+                                                <td>{{ i[7] }}</td>
+                                                
                                             </tr>
                                             {% endfor %}
                                         </tbody>
