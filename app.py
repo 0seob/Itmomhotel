@@ -58,12 +58,6 @@ def mindex():
         return render_template('manager/login.html')
     return render_template('manager/index.html')
 
-@app.route('/manager/charts')
-def mcharts():
-    if not session.get('username'):
-        return render_template('manager/login.html')
-    return render_template('manager/charts.html')
-
 @app.route('/manager/customer')
 def mcustomer():
     if not session.get('username'):
@@ -74,7 +68,19 @@ def mcustomer():
 def memployee():
     if not session.get('username'):
         return render_template('manager/login.html')
-    return render_template('manager/employee.html')
+    db = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+    cur = db.cursor()
+
+    sql = "select * from userinfo"
+    cur.execute(sql)
+
+    data_list = cur.fetchall()
+
+    print(data_list[0])
+    print(data_list[1])
+
+    return render_template('manager/employee.html', data_list=data_list)
+
 
 @app.route('/manager/login')
 def mlogin():
@@ -98,18 +104,6 @@ def mproduct():
     if not session.get('username'):
         return render_template('manager/login.html')
     return render_template('manager/product.html')
-
-@app.route('/manager/profile')
-def mprofile():
-    if not session.get('username'):
-        return render_template('manager/login.html')
-    return render_template('manager/profile.html')
-
-@app.route('/manager/pure')
-def mpure():
-    if not session.get('username'):
-        return render_template('manager/login.html')
-    return render_template('manager/pure.html')
 
 @app.route('/manager/register')
 def mregister():
@@ -146,9 +140,6 @@ def home():
     if not session.get('username'):
         return render_template('manager/login.html')
     return render_template('manager/index.html')
-
-
-
 
 
 @app.route('/login', methods=['post', 'get'])
@@ -273,8 +264,6 @@ def delete():
         cursor.close()
         conn.close()
     return render_template('/manager/delete.html', error=error)
-
-
 
 ### Routes for manager part end ###
 

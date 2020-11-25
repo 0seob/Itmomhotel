@@ -34,7 +34,6 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="profile">Profile</a>
                         <a class="dropdown-item" href="#">Settings</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="login">Logout</a>
@@ -114,24 +113,17 @@
                                                 <th>이름</th>
                                                 <th>직급</th>
                                                 <th>계좌번호</th>
-                                                <th>연봉</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for i in data_list %}
                                             <tr>
-                                                <td>AA001</td>
-                                                <td>윤영훈</td>
-                                                <td>매니저</td>
-                                                <td>000000000</td>
-                                                <td>50000000</td>
+                                                <td>{{ i[0] }}</td>
+                                                <td>{{ i[1] }}</td>
+                                                <td>{{ i[2] }}</td>
+                                                <td>{{ i[3] }}</td>
                                             </tr>
-                                            <tr>
-                                                <td>AB007</td>
-                                                <td>황인재</td>
-                                                <td>매니저</td>
-                                                <td>123456789</td>
-                                                <td>30000000</td>
-                                            </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>
