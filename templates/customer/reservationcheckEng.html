@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<!--English-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hiroto Template">
+    <meta name="keywords" content="Hiroto, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Strong Gum Hotel</title>
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/elegant-icons.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/jquery-ui.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/slicknav.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/style.css')}}">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="./index"><img src="{{ url_for('static', filename='customer/img/logo.png') }}" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__btn__widget">
+            <a href="#">Book Now <span class="arrow_right"></span></a>
+        </div>
+        <div class="offcanvas__widget">
+            <ul>
+                <li><span class="icon_pin_alt"></span> Gyeongido Ansansi Sanglokgu Hanyang road 55</li>
+                <li><span class="icon_phone"></span> 031-400-1005</li>
+            </ul>
+        </div>
+        <div class="offcanvas__language">
+            <img src="{{ url_for('static', filename='customer/img/lan.png') }}" alt="">
+            <span>English</span>
+            <i class="fa fa-angle-down"></i>
+            <ul>
+                <li><a href="./reservationcheckEng">English</li>
+                <li><a href="./reservationcheck">Korean</li>
+            </ul>
+        </div>
+        <div class="offcanvas__auth">
+            <ul>
+                <li><a href="./manager/login">Manager Page</a></li>
+                <li><a href="reservationcheckEng">Reservation Check</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <ul class="header__top__widget">
+                            <li><span class="icon_pin_alt"></span> Gyeongido Ansansi Sanglokgu Hanyang road 55</li>
+                            <li><span class="icon_phone"></span> 031-400-1005</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="header__top__right">
+                            <div class="header__top__auth">
+                                <ul>
+                                    <li><a href="./manager/login">Manager Page</a></li>
+                                    <li><a href="reservationcheckEng">Reservation Check</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__language">
+                                <img src="{{ url_for('static', filename='customer/img/lan.png') }}" alt="">
+                                <span>English</span>
+                                <i class="fa fa-angle-down"></i>
+                                <ul>
+                                    <li><a href="./reservationcheckEng">English</li>
+                                    <li><a href="./reservationcheck">Korean</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__nav__option">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="header__logo">
+                            <a href="./indexEng"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="header__nav">
+                            <nav class="header__menu">
+                                <ul class="menu__class">
+                                    <li class="active"><a href="./index">Home</a></li>
+                                    <li><a href="./roomsEng">Rooms</a></li>
+                                    <li><a href="./aboutEng">About Us</a></li>
+                                    <li><a href="room-detailsEng">Details</a></li>
+                                    <li><a href="./blog">News</a></li>
+                                    <li><a href="./contactEng">Contact</a></li>
+                                </ul>
+                            </nav>
+                            <div class="header__nav__widget">
+                                <a href="reservation">Book Now <span class="arrow_right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open">
+                    <span class="fa fa-bars"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <div class="container">
+      <div class="row mt-5 justify-content-md-center">
+        <div class="col-lg-4 col-md-4">
+          <h2>예약확인</h2>
+          <p>
+            간단하게 예약을 확인하세요.
+          </p>
+        </div>
+      </div>
+      <div class="row mb-4 justify-content-md-center">
+        <div class="col col-lg-4">
+          <form>
+            <div class="form-group">
+              <label for="customername">Name</label>
+              <input type="text" class="form-control" id="customername" aria-describedby="NameHelp" placeholder="name">
+            </div>
+            <div class="form-group">
+              <label for="telephonenum">Phone number</label>
+              <input type="text" class="form-control" id="telephonenum" placeholder="phone number">
+            </div>
+            <div class="form-group">
+              <label for="reservationid">Reservation ID</label>
+              <input type="text" class="form-control" id="reservationid" placeholder="reservation number">
+            </div>
+            <button type="submit" class="btn btn-primary">Reservation Check</button>
+          </form>
+        </div>
+      </div>
+      <ul class="mb-8">
+        <li>
+          "Please enter the English name and reservation number entered when making a room reservation."
+        </li>
+        <li>
+          "You can search only for online reservations."
+        </li>
+        <li>
+          "Reservations for hotels in Gum Tonton can be viewed on the site."
+        </li>
+      </ul>
+    </div>
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="{{ url_for('static', filename='customer/img/footer-bg.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="logo__carousel owl-carousel">
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-1.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-2.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-3.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-4.png') }}" alt=""></a>
+                        </div>
+                        <div class="logo__carousel__item">
+                            <a href="#"><img src="{{ url_for('static', filename='customer/img/logo/logo-5.png') }}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer__content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="indexEng"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
+                            </div>
+                            <h4>031-400-1005</h4>
+                            <ul>
+                                <li>Gyeongido Ansansi Sanglokgu Hanyang road 55, Republic of Korea</li>
+                                <li>Itmomhotel@gmail.com</li>
+                            </ul>
+                            <div class="footer__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1 col-md-5 offset-md-1 col-sm-6">
+                        <div class="footer__widget">
+                            <h4>Quick Link</h4>
+                            <ul>
+                                <li><a href="indexEng">Home</a></li>
+                                <li><a href="reservationEng">Booking</a></li>
+                                <li><a href="aboutEng">About Us</a></li>
+                                <li><a href="#">Review</a></li>
+                                <li><a href="contactEng">Contact</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="roomEng">Our Room</a></li>
+                                <li><a href="#">Restaurants</a></li>
+                                <li><a href="ReservationcheckEng">Reservation Check</a></li>
+                                <li><a href="#">Events</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-8 col-sm-12">
+                        <div class="footer__newslatter">
+                            <h4>Subscribe our newlatester</h4>
+                            <form action="#">
+                                <input type="text" placeholder="Your E-mail Address">
+                                <button type="submit">Subscribe</button>
+                            </form>
+                            <div class="footer__newslatter__find">
+                                <h5>Find Us:</h5>
+                                <div class="footer__newslatter__find__links">
+                                    <a href="#"><i class="fa fa-tripadvisor"></i></a>
+                                    <a href="#"><i class="fa fa-map-o"></i></a>
+                                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                                    <a href="#"><i class="fa fa-forumbee"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Itmomhotel</a></p>
+                        </div>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="col-lg-5 col-md-5">
+                        <ul class="footer__copyright__links">
+                            <li><a href="#">Terms Of Use</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{{ url_for('static', filename='customer/js/jquery-3.3.1.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/bootstrap.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/jquery.nice-select.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/jquery-ui.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/jquery.slicknav.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/owl.carousel.min.js') }}" > </script>
+    <script src="{{ url_for('static', filename='customer/js/main.js') }}" > </script>
+  </body>
+
+  </html>

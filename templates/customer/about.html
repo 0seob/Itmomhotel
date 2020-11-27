@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="kor">
+<!--Korean-->
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Hiroto Template">
     <meta name="keywords" content="Hiroto, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hiroto | Template</title>
+    <title>Strong Gum Hotel</title>
 
     <!-- Css Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/elegant-icons.css')}}">
@@ -30,31 +31,31 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__logo">
-            <a href="./index"><img src="{{ url_for('static', filename='customer/img/logo.png') }}" alt=""></a>
+            <a href="index"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
         </div>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__btn__widget">
-            <a href="#">Book Now <span class="arrow_right"></span></a>
+            <a href="reservation">바로 예약 <span class="arrow_right"></span></a>
         </div>
         <div class="offcanvas__widget">
             <ul>
-                <li><span class="icon_pin_alt"></span> 96 Ernser Vista Suite 437, NY, US</li>
-                <li><span class="icon_phone"></span> (123) 456-78-910</li>
+                <li><span class="icon_pin_alt"></span> 경기도 안산시 상록구 한양대학로 55</li>
+                <li><span class="icon_phone"></span> 031-400-1005</li>
             </ul>
         </div>
         <div class="offcanvas__language">
-            <img src="{{ url_for('static', filename='customer/img/lan.png') }}" alt="">
-            <span>English</span>
+            <img src="{{ url_for('static', filename='customer/img/kf.png') }}" alt="">
+            <span>한국어</span>
             <i class="fa fa-angle-down"></i>
             <ul>
+                <li>한국어</li>
                 <li>English</li>
-                <li>Bangla</li>
             </ul>
         </div>
         <div class="offcanvas__auth">
             <ul>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="./manager/login">관리자페이지</a></li>
+                <li><a href="#">예약확인</a></li>
             </ul>
         </div>
     </div>
@@ -67,25 +68,25 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <ul class="header__top__widget">
-                            <li><span class="icon_pin_alt"></span> 96 Ernser Vista Suite 437, NY, US</li>
-                            <li><span class="icon_phone"></span> (123) 456-78-910</li>
+                            <li><span class="icon_pin_alt"></span> 경기도 안산시 상록구 한양대학로 55</li>
+                            <li><span class="icon_phone"></span> 031-400-1005</li>
                         </ul>
                     </div>
                     <div class="col-lg-5">
                         <div class="header__top__right">
                             <div class="header__top__auth">
                                 <ul>
-                                    <li><a href="#">Login</a></li>
-                                    <li><a href="#">Register</a></li>
+                                    <li><a href="./manager/login">관리자페이지</a></li>
+                                    <li><a href="reservationcheck">예약확인</a></li>
                                 </ul>
                             </div>
                             <div class="header__top__language">
-                                <img src="{{ url_for('static', filename='customer/img/lan.png') }}" alt="">
-                                <span>English</span>
+                                <img src="{{ url_for('static', filename='customer/img/kf.png') }}" alt="">
+                                <span>한국어</span>
                                 <i class="fa fa-angle-down"></i>
                                 <ul>
-                                    <li>English</li>
-                                    <li>Bangla</li>
+                                    <li><a href="about">한국어</li>
+                                    <li><a href="aboutEng">English</li>
                                 </ul>
                             </div>
                         </div>
@@ -98,29 +99,23 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="header__logo">
-                            <a href="./index"><img src="{{ url_for('static', filename='customer/img/logo.png') }}" alt=""></a>
+                            <a href="index"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-10">
                         <div class="header__nav">
                             <nav class="header__menu">
                                 <ul class="menu__class">
-                                    <li><a href="./index">Home</a></li>
-                                    <li><a href="./rooms">Rooms</a></li>
-                                    <li class="active"><a href="./about">About Us</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./about">About Us</a></li>
-                                            <li><a href="./room-details">Room Details</a></li>
-                                            <li><a href="./blog-details">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="./blog">News</a></li>
-                                    <li><a href="./contact">Contact</a></li>
+                                    <li class="active"><a href="index">홈으로</a></li>
+                                    <li><a href="rooms">객실정보</a></li>
+                                    <li><a href="about">호텔잇몸 소개</a></li>
+                                    <li><a href="room-details">상세정보</a></li>
+                                    <li><a href="blog">소식</a></li>
+                                    <li><a href="contact">고객문의</a></li>
                                 </ul>
                             </nav>
                             <div class="header__nav__widget">
-                                <a href="#">Book Now <span class="arrow_right"></span></a>
+                                <a href="reservation">바로 예약 <span class="arrow_right"></span></a>
                             </div>
                         </div>
                     </div>
@@ -158,17 +153,15 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="section-title">
-                            <h5>Our Specialization</h5>
-                            <h2>Welcome Hiroto</h2>
+                            <h5>잇몸 호텔만의 특징</h5>
+                            <h2>잇몸 호텔에 오신 것을 환영합니다.</h2>
                         </div>
                     </div>
                     <div class="col-lg-7">
                         <div class="about__text">
-                            <p>Metasurfaces are generally designed by placing scatterers in periodic or pseudo-periodic
-                                grids.</p>
-                            <p>I am convinced the only way to make money online is to have a consistent Advertising
-                                plan. A plan you are willing to work hard on and commit to for a selected period of
-                                time. When making this plan, you need to do two things.</p>
+                            <p>손님 여러분들이 편하게 머물다 가실 수 있도록 다음과 같은 서비스를 준비했습니다.</p>
+                            <p>솔직히 여기까지 하나하나 세세하게 안들여다 볼 것 같은데 그냥 하고싶은 말이나 대충 써야겠다.
+                               이거 한국말로 쓰면 띄어쓰기도 인식 안되고 엔터쳐도 안넘어가지던데 진짜 영어만 대우해주는거 너무한거 아니냐.</p>
                         </div>
                     </div>
                 </div>
@@ -177,49 +170,43 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-1.png') }}" alt="">
-                        <h4>Free Wi-Fi</h4>
-                        <p>The massive investment in a hotel or resort requires constant reviews and control in order to
-                            make it a successful investment.</p>
+                        <h4>무료 와이파이</h4>
+                        <p>호텔 어디에서든 매우 빠른 속도로 무료 와이파이를 즐겨보세요.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-2.png') }}" alt="">
-                        <h4>Premium Pool</h4>
-                        <p>Choose from 4 unique ready made concepts, let us help you create the concept perfect for you
-                            or let HCA.</p>
+                        <h4>실내 수영장</h4>
+                        <p>실내 수영장에서 계절에 관계없이 물놀이를 즐겨보세요.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-3.png') }}" alt="">
-                        <h4>Coffee Maker</h4>
-                        <p>HCA's Owner's Representation is taking care of just these important factors, may it be
-                            through regular site visits and spot checks.</p>
+                        <h4>커피 메이커</h4>
+                        <p>방마다 구비되어 있는 커피 메이커를 통해 기분 좋은 하루를 맞이하세요.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-4.png') }}" alt="">
-                        <h4>Bar Wine</h4>
-                        <p>For properties with third party management companies, HCA Consultants will as well administer
-                            the terms and conditions.</p>
+                        <h4>와인 바</h4>
+                        <p>분위기가 필요할 때, 와인 한 잔 어떠신가요?</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-5.png') }}" alt="">
-                        <h4>TV HD</h4>
-                        <p>We provide a critical analysis of a hotel's marketing strategy, bench-marking it against
-                            industry and competitive practices.</p>
+                        <h4>UHD TV</h4>
+                        <p>UHD화질의 TV를 마음껏 이용하실 수 있습니다.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-6.png') }}" alt="">
-                        <h4>Restaurant</h4>
-                        <p>A hotel and restaurant investment deserves careful and market oriented financial planning and
-                            projections.</p>
+                        <h4>레스토랑</h4>
+                        <p>미슐랭 3스타 출신 셰프가 제공하는 최고의 식사를 경험해 보세요.</p>
                     </div>
                 </div>
             </div>
@@ -234,10 +221,10 @@
                 <div class="col-lg-8 text-center">
                     <div class="chooseus__text">
                         <div class="section-title">
-                            <h5>WHY CHOOSE US</h5>
-                            <h2>Contact us now to get the latest deals and for the next booking</h2>
+                            <h5>당신이 잇몸호텔을 선택해야하는 이유!</h5>
+                            <h2>빠른 예약과 문의를 원하시면 아래 버튼을 클릭해주세요.</h2>
                         </div>
-                        <a href="#" class="primary-btn">Booking Now</a>
+                        <a href="reservation" class="primary-btn">바로 예약</a>
                     </div>
                 </div>
             </div>
@@ -251,8 +238,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title history-title">
-                        <h5>Our History</h5>
-                        <h2>Explore Our Hotel</h2>
+                        <h5>호텔 연혁</h5>
+                        <h2>잇몸호텔의 역사</h2>
                     </div>
                 </div>
             </div>
@@ -261,37 +248,37 @@
                     <div class="col-lg-5 col-md-5">
                         <div class="history__item left__item">
                             <div class="history__date"></div>
-                            <span>11 Dec 1990</span>
-                            <h4>Start Up Building Hotel</h4>
+                            <span>02 Mar 2017</span>
+                            <h4>호텔 사업을 시작하다.</h4>
                             <img src="{{ url_for('static', filename='customer/img/history/history-1.jpg') }}" alt="">
-                            <p>The young woman who turned a style setback into an envious outfit has officially inspired
-                                a major clothing retailer with her impromptu ingenuity</p>
+                            <p>어린 대학생, 정민균은 호기롭게 호텔사업을 시작했고 그 이름을 잇몸 호텔이라고 지었다. 초창기 한개의 작은 건물이었던
+                               잇몸 호텔은 한양대학교의 투자를 받아 매우 빠르게 성장하게된다.</p>
                         </div>
                         <div class="history__item left__item mb-0">
                             <div class="history__date"></div>
-                            <span>29 Jan 1990</span>
-                            <h4>Building Pool In The Beach</h4>
+                            <span>29 Feb 2019</span>
+                            <h4>호텔에 수영장을 짓고 규모를 넓히다.</h4>
                             <img src="{{ url_for('static', filename='customer/img/history/history-3.jpg') }}" alt="">
-                            <p>The young woman who turned a style setback into an envious outfit has officially inspired
-                                a major clothing retailer with her impromptu ingenuity</p>
+                            <p>군복무를 마치고 돌아온 정민균은 바로 사세 확장에 들어간다. 그 프로젝트 중 첫번째는 바로 수영장 건설. 사계절 내내 사용할 수 있는
+                            수영장을 통해 고객을 유치하겠다는 목표 아래 모든 호텔은 확장공사에 들어갔다.</p>
                         </div>
                     </div>
                     <div class="col-lg-5 offset-lg-2 col-md-5 offset-md-2">
                         <div class="history__item right__first__item">
                             <div class="history__date"></div>
-                            <span>08 March 1990</span>
-                            <h4>Best Hotel Award Of The Year</h4>
+                            <span>02 Jul 2018</span>
+                            <h4>2018 상반기 최고 호텔 등극</h4>
                             <img src="{{ url_for('static', filename='customer/img/history/history-2.jpg') }}" alt="">
-                            <p>The young woman who turned a style setback into an envious outfit has officially inspired
-                                a major clothing retailer with her impromptu ingenuity</p>
+                            <p>1년만에 매우 빠르게 성장한 호텔 사업은 지역을 넘어 전국으로 유명해졌고 결국 상반기 호텔에 등극하였다. 하지만 시상 후 정민균은 돌연 자취를 감추었고
+                               한달 뒤 그가 논산훈련소에서 훈련을 받고 있다는 소식이 전해지며 잇몸 호텔은 큰 충격에 휩싸였다.</p>
                         </div>
                         <div class="history__item mb-0">
                             <div class="history__date"></div>
-                            <span>06 July 1990</span>
-                            <h4>Open New Hotel In New York</h4>
+                            <span>10 Dec 2020</span>
+                            <h4>제주도에 새로운 호텔을 열다.</h4>
                             <img src="{{ url_for('static', filename='customer/img/history/history-4.jpg') }}" alt="">
-                            <p>The young woman who turned a style setback into an envious outfit has officially inspired
-                                a major clothing retailer with her impromptu ingenuity</p>
+                            <p>정민균이 경영권을 다시 잡고나서 잇몸호텔은 꾸준한 성장을 이뤄왔고 1위의 영예를 되찾아왔다. 이 기세를 몰아 정민균은 공격적으로 신규 호텔 건설에 돌입하였고
+                               그 위치는 바로 제주도였다.</p>
                         </div>
                     </div>
                 </div>
@@ -301,7 +288,7 @@
     <!-- History Section End -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer set-bg" data-setbg="{{ url_for('static', filename='customer/img/footer-bg.jpg') }}">
+    <footer class="footer set-bg" data-setbg="{{ url_for('static', filename='customer/img/footer-bg.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -331,12 +318,12 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="footer__about">
                             <div class="footer__logo">
-                                <a href="#"><img src="{{ url_for('static', filename='customer/img/logo.png') }}" alt=""></a>
+                                <a href="index"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
                             </div>
-                            <h4>(123) 456-78-91096</h4>
+                            <h4>031-400-1005</h4>
                             <ul>
-                                <li>Ernser Vista Suite 437, NY</li>
-                                <li>Info.colorlib@gmail.com</li>
+                                <li>경기도 안산시 상록구 한양대학로 55</li>
+                                <li>Itmomhotel@gamil.com</li>
                             </ul>
                             <div class="footer__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -346,34 +333,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 offset-lg- col-md-5 offset-md-1 col-sm-6">
+                    <div class="col-lg-3 offset-lg-1 col-md-5 offset-md-1 col-sm-6">
                         <div class="footer__widget">
-                            <h4>Quick Link</h4>
+                            <h4>빠른메뉴</h4>
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Booking</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Review</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="index">홈으로</a></li>
+                                <li><a href="reservation">예약</a></li>
+                                <li><a href="about">호텔잇몸 소개</a></li>
+                                <li><a href="#">고객후기</a></li>
+                                <li><a href="contact">연락처</a></li>
                             </ul>
                             <ul>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Our Room</a></li>
-                                <li><a href="#">Restaurants</a></li>
-                                <li><a href="#">Payments</a></li>
-                                <li><a href="#">Events</a></li>
+                                <li><a href="#">서비스</a></li>
+                                <li><a href="room">객실</a></li>
+                                <li><a href="#">식당</a></li>
+                                <li><a href="#">예약확인</a></li>
+                                <li><a href="#">이벤트</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-8 col-sm-12">
                         <div class="footer__newslatter">
-                            <h4>Subscribe our newlatester</h4>
+                            <h4>잇몸호텔 소식을 구독하세요!</h4>
                             <form action="#">
-                                <input type="text" placeholder="Your E-mail Address">
-                                <button type="submit">Subscribe</button>
+                                <input type="text" placeholder="이메일 주소를 입력해주세요">
+                                <button type="submit">구독</button>
                             </form>
                             <div class="footer__newslatter__find">
-                                <h5>Find Us:</h5>
+                                <h5>Link:</h5>
                                 <div class="footer__newslatter__find__links">
                                     <a href="#"><i class="fa fa-tripadvisor"></i></a>
                                     <a href="#"><i class="fa fa-map-o"></i></a>
@@ -390,7 +377,7 @@
                     <div class="col-lg-7 col-md-7">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <div class="footer__copyright__text">
-                            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Itmomhotel</a></p>
                         </div>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>

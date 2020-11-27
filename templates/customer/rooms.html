@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="kor">
+<!--Korean-->
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Hiroto Template">
     <meta name="keywords" content="Hiroto, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hiroto | Template</title>
+    <title>Strong Gum Hotel</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
+
     <!-- Css Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/elegant-icons.css')}}">
@@ -35,47 +37,31 @@
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__logo">
-            <a href="./index"><img src="{{ url_for('static', filename='customer/img/logo.png') }}" alt=""></a>
+            <a href="index"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
         </div>
-        <nav class="offcanvas__menu mobile-menu">
-            <ul>
-                <li class="active"><a href="./index">Home</a></li>
-                <li><a href="./rooms">Rooms</a></li>
-                <li><a href="./about">About Us</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="dropdown">
-                        <li><a href="./about">About Us</a></li>
-                        <li><a href="./room-details">Room Details</a></li>
-                        <li><a href="./blog-details">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog">News</a></li>
-                <li><a href="./contact">Contact</a></li>
-            </ul>
-        </nav>
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__btn__widget">
-            <a href="#">Book Now <span class="arrow_right"></span></a>
+            <a href="reservation">바로 예약 <span class="arrow_right"></span></a>
         </div>
         <div class="offcanvas__widget">
             <ul>
-                <li><span class="icon_pin_alt"></span> 96 Ernser Vista Suite 437, NY, US</li>
-                <li><span class="icon_phone"></span> (123) 456-78-910</li>
+                <li><span class="icon_pin_alt"></span> 경기도 안산시 상록구 한양대학로 55</li>
+                <li><span class="icon_phone"></span> 031-400-1005</li>
             </ul>
         </div>
         <div class="offcanvas__language">
-            <img src="{{ url_for('static', filename='customer/img/lan.png') }}" alt="">
-            <span>English</span>
+            <img src="{{ url_for('static', filename='customer/img/kf.png') }}" alt="">
+            <span>한국어</span>
             <i class="fa fa-angle-down"></i>
             <ul>
+                <li>한국어</li>
                 <li>English</li>
-                <li>Bangla</li>
             </ul>
         </div>
         <div class="offcanvas__auth">
             <ul>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
+              <li><a href="./manager/login">관리자페이지</a></li>
+              <li><a href="reservationcheck">예약확인</a></li>
             </ul>
         </div>
     </div>
@@ -88,25 +74,25 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <ul class="header__top__widget">
-                            <li><span class="icon_pin_alt"></span> 96 Ernser Vista Suite 437, NY, US</li>
-                            <li><span class="icon_phone"></span> (123) 456-78-910</li>
+                            <li><span class="icon_pin_alt"></span> 경기도 안산시 상록구 한양대학로 55</li>
+                            <li><span class="icon_phone"></span> 031-400-1005</li>
                         </ul>
                     </div>
                     <div class="col-lg-5">
                         <div class="header__top__right">
                             <div class="header__top__auth">
                                 <ul>
-                                    <li><a href="#">Login</a></li>
-                                    <li><a href="#">Register</a></li>
+                                  <li><a href="./manager/login">관리자페이지</a></li>
+                                  <li><a href="reservationcheck">예약확인</a></li>
                                 </ul>
                             </div>
                             <div class="header__top__language">
-                                <img src="{{ url_for('static', filename='customer/img/lan.png') }}" alt="">
-                                <span>English</span>
+                                <img src="{{ url_for('static', filename='customer/img/kf.png') }}" alt="">
+                                <span>한국어</span>
                                 <i class="fa fa-angle-down"></i>
                                 <ul>
-                                    <li>English</li>
-                                    <li>Bangla</li>
+                                    <li><a href="rooms">한국어</li>
+                                    <li><a href="roomsEng">English</li>
                                 </ul>
                             </div>
                         </div>
@@ -119,29 +105,23 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="header__logo">
-                            <a href="./index"><img src="{{ url_for('static', filename='customer/img/logo.png') }}" alt=""></a>
+                            <a href="index"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-10">
                         <div class="header__nav">
                             <nav class="header__menu">
-                                <ul>
-                                    <li><a href="./index">Home</a></li>
-                                    <li class="active"><a href="./rooms">Rooms</a></li>
-                                    <li><a href="./about">About Us</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./about">About Us</a></li>
-                                            <li><a href="./room-details">Room Details</a></li>
-                                            <li><a href="./blog-details">Blog Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="./blog">News</a></li>
-                                    <li><a href="./contact">Contact</a></li>
+                                <ul class="menu__class">
+                                    <li class="active"><a href="index">홈으로</a></li>
+                                    <li><a href="rooms">객실정보</a></li>
+                                    <li><a href="about">호텔잇몸 소개</a></li>
+                                    <li><a href="room-details">상세정보</a></li>
+                                    <li><a href="blog">소식</a></li>
+                                    <li><a href="contact">고객문의</a></li>
                                 </ul>
                             </nav>
                             <div class="header__nav__widget">
-                                <a href="#">Book Now <span class="arrow_right"></span></a>
+                                <a href="reservation">바로 예약 <span class="arrow_right"></span></a>
                             </div>
                         </div>
                     </div>
@@ -160,7 +140,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h1>Our Room</h1>
+                        <h1>객실</h1>
                         <div class="breadcrumb__links">
                             <a href="./index">Home</a>
                             <span>Rooms</span>
@@ -186,16 +166,16 @@
                 </div>
                 <div class="col-lg-6 p-0 order-lg-1 order-md-1 col-md-6">
                     <div class="room__text">
-                        <h3>Premium King Room</h3>
-                        <h2><sup>$</sup>99<span>/day</span></h2>
+                        <h3>Standard Room</h3>
+                        <h2><sup>₩</sup>100,000~<span>/박</span></h2>
                         <ul>
-                            <li><span>Size:</span>30 ft</li>
-                            <li><span>Capacity:</span>Max persion 3</li>
-                            <li><span>Bed:</span>King Beds</li>
-                            <li><span>Services:</span>Wifi, Television, Bathroom,...</li>
-                            <li><span>View:</span>Sea View</li>
+                            <li><span>넓이:</span>30평</li>
+                            <li><span>수용인원:</span>4</li>
+                            <li><span>침대:</span>킹 1</li>
+                            <li><span>서비스:</span>와이파이, TV, 수영장,...</li>
+                            <li><span>풍경:</span>산</li>
                         </ul>
-                        <a href="#">View Details</a>
+                        <a href="reservation">바로 예약</a>
                     </div>
                 </div>
                 <div class="col-lg-6 p-0 order-lg-3 order-md-3 col-md-6">
@@ -208,16 +188,16 @@
                 </div>
                 <div class="col-lg-6 p-0 order-lg-4 order-md-4 col-md-6">
                     <div class="room__text right__text">
-                        <h3>Deluxe Room</h3>
-                        <h2><sup>$</sup>86<span>/day</span></h2>
+                        <h3>Superior Room</h3>
+                        <h2><sup>₩</sup>150,000~<span>/박</span></h2>
                         <ul>
-                            <li><span>Size:</span>30 ft</li>
-                            <li><span>Capacity:</span>Max persion 3</li>
-                            <li><span>Bed:</span>King Beds</li>
-                            <li><span>Services:</span>Wifi, Television, Bathroom,...</li>
-                            <li><span>View:</span>Sea View</li>
+                          <li><span>넓이:</span>35평</li>
+                          <li><span>수용인원:</span>4</li>
+                          <li><span>침대:</span>킹 1</li>
+                          <li><span>서비스:</span>와이파이, TV, 수영장,...</li>
+                          <li><span>풍경:</span>바다</li>
                         </ul>
-                        <a href="#">View Details</a>
+                        <a href="reservation">바로 예약</a>
                     </div>
                 </div>
                 <div class="col-lg-6 p-0 order-lg-6 order-md-6 col-md-6">
@@ -230,16 +210,16 @@
                 </div>
                 <div class="col-lg-6 p-0 order-lg-5 order-md-5 col-md-6">
                     <div class="room__text">
-                        <h3>Double Room</h3>
-                        <h2><sup>$</sup>71<span>/day</span></h2>
-                        <ul>
-                            <li><span>Size:</span>30 ft</li>
-                            <li><span>Capacity:</span>Max persion 3</li>
-                            <li><span>Bed:</span>King Beds</li>
-                            <li><span>Services:</span>Wifi, Television, Bathroom,...</li>
-                            <li><span>View:</span>Sea View</li>
-                        </ul>
-                        <a href="#">View Details</a>
+                      <h3>Deluxe Room</h3>
+                      <h2><sup>₩</sup>200,000~<span>/박</span></h2>
+                      <ul>
+                        <li><span>넓이:</span>40평</li>
+                        <li><span>수용인원:</span>4</li>
+                        <li><span>침대:</span>킹 2</li>
+                        <li><span>서비스:</span>와이파이, TV, 수영장,...</li>
+                        <li><span>풍경:</span>바다</li>
+                      </ul>
+                      <a href="reservation">바로 예약</a>
                     </div>
                 </div>
                 <div class="col-lg-6 p-0 order-lg-7 order-md-7 col-md-6">
@@ -252,16 +232,16 @@
                 </div>
                 <div class="col-lg-6 p-0 order-lg-8 order-md-8 col-md-6">
                     <div class="room__text right__text">
-                        <h3>Luxury Room</h3>
-                        <h2><sup>$</sup>79<span>/day</span></h2>
-                        <ul>
-                            <li><span>Size:</span>30 ft</li>
-                            <li><span>Capacity:</span>Max persion 3</li>
-                            <li><span>Bed:</span>King Beds</li>
-                            <li><span>Services:</span>Wifi, Television, Bathroom,...</li>
-                            <li><span>View:</span>Sea View</li>
-                        </ul>
-                        <a href="#">View Details</a>
+                      <h3>Suite Room</h3>
+                      <h2><sup>₩</sup>250,000~<span>/박</span></h2>
+                      <ul>
+                        <li><span>넓이:</span>50평</li>
+                        <li><span>수용인원:</span>2</li>
+                        <li><span>침대:</span>킹 2</li>
+                        <li><span>서비스:</span>와이파이, TV, 수영장,...</li>
+                        <li><span>풍경:</span>바다</li>
+                      </ul>
+                      <a href="reservation">바로 예약</a>
                     </div>
                 </div>
             </div>
@@ -270,7 +250,7 @@
                     <div class="pagination__number">
                         <a href="#">1</a>
                         <a href="#">2</a>
-                        <a href="#">Next <span class="arrow_right"></span></a>
+                        <a href="#">다음 <span class="arrow_right"></span></a>
                     </div>
                 </div>
             </div>
@@ -279,7 +259,7 @@
     <!-- Rooms Section End -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer set-bg" data-setbg="{{ url_for('static', filename='customer/img/footer-bg.jpg') }}">
+    <footer class="footer set-bg" data-setbg="{{ url_for('static', filename='customer/img/footer-bg.jpg')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -309,12 +289,12 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="footer__about">
                             <div class="footer__logo">
-                                <a href="#"><img src="{{ url_for('static', filename='customer/img/logo.png') }}" alt=""></a>
+                                <a href="index"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
                             </div>
-                            <h4>(123) 456-78-91096</h4>
+                            <h4>031-400-1005</h4>
                             <ul>
-                                <li>Ernser Vista Suite 437, NY</li>
-                                <li>Info.colorlib@gmail.com</li>
+                                <li>경기도 안산시 상록구 한양대학로 55</li>
+                                <li>Itmomhotel@gamil.com</li>
                             </ul>
                             <div class="footer__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -326,32 +306,32 @@
                     </div>
                     <div class="col-lg-3 offset-lg-1 col-md-5 offset-md-1 col-sm-6">
                         <div class="footer__widget">
-                            <h4>Quick Link</h4>
+                            <h4>빠른메뉴</h4>
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Booking</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Review</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="index">홈으로</a></li>
+                                <li><a href="reservation">예약</a></li>
+                                <li><a href="about">호텔잇몸 소개</a></li>
+                                <li><a href="#">고객후기</a></li>
+                                <li><a href="contact">연락처</a></li>
                             </ul>
                             <ul>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Our Room</a></li>
-                                <li><a href="#">Restaurants</a></li>
-                                <li><a href="#">Payments</a></li>
-                                <li><a href="#">Events</a></li>
+                                <li><a href="#">서비스</a></li>
+                                <li><a href="room">객실</a></li>
+                                <li><a href="#">식당</a></li>
+                                <li><a href="#">예약확인</a></li>
+                                <li><a href="#">이벤트</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-8 col-sm-12">
                         <div class="footer__newslatter">
-                            <h4>Subscribe our newlatester</h4>
+                            <h4>잇몸호텔 소식을 구독하세요!</h4>
                             <form action="#">
-                                <input type="text" placeholder="Your E-mail Address">
-                                <button type="submit">Subscribe</button>
+                                <input type="text" placeholder="이메일 주소를 입력해주세요">
+                                <button type="submit">구독</button>
                             </form>
                             <div class="footer__newslatter__find">
-                                <h5>Find Us:</h5>
+                                <h5>Link:</h5>
                                 <div class="footer__newslatter__find__links">
                                     <a href="#"><i class="fa fa-tripadvisor"></i></a>
                                     <a href="#"><i class="fa fa-map-o"></i></a>
@@ -366,9 +346,11 @@
             <div class="footer__copyright">
                 <div class="row">
                     <div class="col-lg-7 col-md-7">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <div class="footer__copyright__text">
-                            <p>© Copyright 2019 Hotell Hiroto - Theme by Colorlib.</p>
+                            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Itmomhotel</a></p>
                         </div>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
                     <div class="col-lg-5 col-md-5">
                         <ul class="footer__copyright__links">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Employee Update</title>
+	<title>Manager Register</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -29,40 +29,57 @@
 
 </head>
 <body>
-	
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
 				<form class="login100-form validate-form flex-sb flex-w" action="/manager/update" method="POST">
 					<span class="login100-form-title p-b-51">
-						Update
+						Register
 					</span>
 
-					
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "username is required">
-						<input class="input100" type="text" name="username" placeholder="Username">
-						<span class="focus-input100"></span>
-					</div>
-					
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "email is required">
-						<input class="input100" type="text" name="email" placeholder="Email address">
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Employee_id is required">
+						<input class="input100" type="text" name="Employee_id" placeholder="Employee_id">
 						<span class="focus-input100"></span>
 					</div>
 
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Employee_Name is required">
+						<input class="input100" type="text" name="Employee_Name" placeholder="Employee_Name">
+						<span class="focus-input100"></span>
+					</div>
 
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="Password">
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Gender is required">
+						<input class="input100" type="text" name="Gender" placeholder="Gender (Male / Female)">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Account_Number is required">
+						<input class="input100" type="text" name="Account_Number" placeholder="Account Number (000-000-000-000)">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Salary is required">
+						<input class="input100" type="text" name="Salary" placeholder="Salary">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "On_work is required">
+						<input class="input100" type="text" name="On_work" placeholder="On_work">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Employee_Info_ID is required">
+						<input class="input100" type="text" name="Employee_Info_Id" placeholder="Employee Info ID">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="container-login100-form-btn m-t-17">
 						<button class="login100-form-btn" type="submit">
-							Update
+							Register
 						</button>
 					</div>
 				</form>
 				<br>
-				<center> <u> <a href="/manage/update">More</a> </u> </center>
 			</div>
 		</div>
 	</div>

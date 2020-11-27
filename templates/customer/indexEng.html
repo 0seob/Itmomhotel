@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
-<!--Korean-->
+<!--English-->
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Hiroto Template">
@@ -10,6 +10,7 @@
     <title>Strong Gum Hotel</title>
 
     <!-- Css Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='customer/css/elegant-icons.css')}}">
@@ -47,14 +48,14 @@
             <span>English</span>
             <i class="fa fa-angle-down"></i>
             <ul>
-                <li><a href="./index">Korean</li>
-                <li><a href="./indexEng">English</li>
+                <li><a href="./index">English</li>
+                <li><a href="./indexEng">Korean</li>
             </ul>
         </div>
         <div class="offcanvas__auth">
             <ul>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="./manager/login">Manager Page</a></li>
+                <li><a href="#">Reservation Check</a></li>
             </ul>
         </div>
     </div>
@@ -75,8 +76,8 @@
                         <div class="header__top__right">
                             <div class="header__top__auth">
                                 <ul>
-                                    <li><a href="#">Login</a></li>
-                                    <li><a href="#">Register</a></li>
+                                    <li><a href="./manager/login">Manager Page</a></li>
+                                    <li><a href="reservationcheckEng">Reservation Check</a></li>
                                 </ul>
                             </div>
                             <div class="header__top__language">
@@ -98,29 +99,23 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="header__logo">
-                            <a href="./index"><img src="{{ url_for('static', filename='customer/img/logo2.png') }}" alt=""></a>
+                            <a href="./indexEng"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-10">
                         <div class="header__nav">
                             <nav class="header__menu">
                                 <ul class="menu__class">
-                                    <li class="active"><a href="./index">Home</a></li>
-                                    <li><a href="./rooms">Rooms</a></li>
-                                    <li><a href="./about">About Us</a></li>
-                                    <li><a href="#">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./about">About Us</a></li>
-                                            <li><a href="./room-details">Room Details</a></li>
-                                            <li><a href="./blog-details">Blog Details</a></li>
-                                        </ul>
-                                    </li>
+                                    <li class="active"><a href="./indexEng">Home</a></li>
+                                    <li><a href="./roomsEng">Rooms</a></li>
+                                    <li><a href="./aboutEng">About Us</a></li>
+                                    <li><a href="room-detailsEng">Details</a></li>
                                     <li><a href="./blog">News</a></li>
-                                    <li><a href="./contact">Contact</a></li>
+                                    <li><a href="./contactEng">Contact</a></li>
                                 </ul>
                             </nav>
                             <div class="header__nav__widget">
-                                <a href="#">Book Now <span class="arrow_right"></span></a>
+                                <a href="reservationEng">Book Now <span class="arrow_right"></span></a>
                             </div>
                         </div>
                     </div>
@@ -139,7 +134,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="hero__text">
-                        <h5>WELCOME INMOM</h5>
+                        <h5>WELCOME ITMOM</h5>
                         <h2>Experience the greatest for you holidays.</h2>
                     </div>
                     <form action="#" class="filter__form">
@@ -198,18 +193,16 @@
                     <div class="home__about__text">
                         <div class="section-title">
                             <h5>ABOUT US</h5>
-                            <h2>Welcome Hiroto Hotel In Street L’Abreuvoir</h2>
+                            <h2>Welcome to the Itmom hotel.</h2>
                         </div>
-                        <p class="first-para">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-                            fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                        <p class="last-para">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque.</p>
-                        <img src="{{ url_for('static', filename='customer/img/home-about/sign.png') }}" alt="">
+                        <p class="first-para">We, Itmom Hotel, promise to always do our best to provide the best experience to our customers.</p>
+                        <p class="last-para">If you have any complaints, please feel free to contact us.</p>
+                        <img src="{{ url_for('static', filename='customer/img/home-about/sign.jpeg') }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="home__about__pic">
-                        <img src="{{ url_for('static', filename='customer/img/home-about/home-about.png') }}" alt="">
+                        <img src="{{ url_for('static', filename='customer/img/home-about/home.png') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -225,48 +218,42 @@
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-1.png') }}" alt="">
                         <h4>Free Wi-Fi</h4>
-                        <p>The massive investment in a hotel or resort requires constant reviews and control in order to
-                            make it a successful investment.</p>
+                        <p>Enjoy free Wi-Fi at very fast speeds anywhere in the hotel.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-2.png') }}" alt="">
                         <h4>Premium Pool</h4>
-                        <p>Choose from 4 unique ready made concepts, let us help you create the concept perfect for you
-                            or let HCA.</p>
+                        <p>In the indoor pool, you can play in the water regardless of the season.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-3.png') }}" alt="">
                         <h4>Coffee Maker</h4>
-                        <p>HCA's Owner's Representation is taking care of just these important factors, may it be
-                            through regular site visits and spot checks.</p>
+                        <p>Have a pleasant day with a coffee maker in each room.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-4.png') }}" alt="">
                         <h4>Bar Wine</h4>
-                        <p>For properties with third party management companies, HCA Consultants will as well administer
-                            the terms and conditions.</p>
+                        <p>When you need an atmosphere, how about a glass of wine?</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-5.png') }}" alt="">
                         <h4>TV HD</h4>
-                        <p>We provide a critical analysis of a hotel's marketing strategy, bench-marking it against
-                            industry and competitive practices.</p>
+                        <p>You can enjoy the UHD quality TV to your heart's content.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="services__item">
                         <img src="{{ url_for('static', filename='customer/img/services/services-6.png') }}" alt="">
                         <h4>Restaurant</h4>
-                        <p>A hotel and restaurant investment deserves careful and market oriented financial planning and
-                            projections.</p>
+                        <p>Experience the best meals served by a three-star Michelin chef.</p>
                     </div>
                 </div>
             </div>
@@ -291,8 +278,8 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 p-0">
                     <div class="home__room__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/home-room/hr-1.jpg') }}">
                         <div class="home__room__title">
-                            <h4>Deluxe Room</h4>
-                            <h2><sup>$</sup>55<span>/day</span></h2>
+                            <h4>Standard Room</h4>
+                            <h2><sup>$</sup>100~<span>/day</span></h2>
                         </div>
                         <a href="#">Booking Now</a>
                     </div>
@@ -300,8 +287,8 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 p-0">
                     <div class="home__room__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/home-room/hr-2.jpg') }}">
                         <div class="home__room__title">
-                            <h4>Deluxe Room</h4>
-                            <h2><sup>$</sup>85<span>/day</span></h2>
+                            <h4>Superior Room</h4>
+                            <h2><sup>$</sup>150~<span>/day</span></h2>
                         </div>
                         <a href="#">Booking Now</a>
                     </div>
@@ -310,7 +297,7 @@
                     <div class="home__room__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/home-room/hr-3.jpg') }}">
                         <div class="home__room__title">
                             <h4>Deluxe Room</h4>
-                            <h2><sup>$</sup>94<span>/day</span></h2>
+                            <h2><sup>$</sup>200~<span>/day</span></h2>
                         </div>
                         <a href="#">Booking Now</a>
                     </div>
@@ -318,22 +305,10 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 p-0">
                     <div class="home__room__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/home-room/hr-4.jpg') }}">
                         <div class="home__room__title">
-                            <h4>Deluxe Room</h4>
-                            <h2><sup>$</sup>71<span>/day</span></h2>
+                            <h4>Suite Room</h4>
+                            <h2><sup>$</sup>250~<span>/day</span></h2>
                         </div>
                         <a href="#">Booking Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="home__explore">
-                <div class="row">
-                    <div class="col-lg-9 col-md-8">
-                        <h3>Planning your next trip? Save up to 25% on your hotel</h3>
-                    </div>
-                    <div class="col-lg-3 col-md-4 text-center">
-                        <a href="#" class="primary-btn">Explorer More</a>
                     </div>
                 </div>
             </div>
@@ -347,7 +322,7 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="testimonial__pic">
-                        <img src="{{ url_for('static', filename='customer/img/testimonial-left.jpg') }}" alt="">
+                        <img src="{{ url_for('static', filename='customer/img/insa.jpg') }}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -365,25 +340,50 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star"></i>
                                     </div>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-                                        omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                                    <p>I liked it because the accessibility was good. When I first entered the room, I think I liked the room more because it looked so neat and cozy!! I will generously give you 10 stars.</p>
                                     <div class="testimonial__author">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="testimonial__author__title">
-                                                    <h5>Ridchard Houston</h5>
-                                                    <span>Director Colorlib</span>
+                                                    <h5>Son Heung-min</h5>
+                                                    <span>2020-11-28 ~ 2020-11-30</span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="testimonial__author__social">
-                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="https://ko-kr.facebook.com/HeungMinSonOfficial"><i class="fa fa-facebook"></i></a>
                                                     <a href="#"><i class="fa fa-twitter"></i></a>
-                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                    <a href="https://www.instagram.com/hm_son7/?hl=ko"><i class="fa fa-instagram"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="testimonial__item">
+                                    <h5>Detailed Review:</h5>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <p>It's been a while since I've been traveling with my family, and I'm really taking a rest. The sea is close enough that you don't have to go far, and the ocean view from the window is nice. I am satisfied in all aspects. :)</p>
+                                    <div class="testimonial__author">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="testimonial__author__title">
+                                                    <h5>Lionel Messi</h5>
+                                                    <span>2020-11-29 ~ 2020-12-02</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="testimonial__author__social">
+                                                    <a href="https://www.facebook.com/leomessi"><i class="fa fa-facebook"></i></a>
+                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a href="https://www.instagram.com/leomessi/"><i class="fa fa-instagram"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -398,23 +398,20 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star-o"></i>
                                     </div>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-                                        omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                                    <p>Overall it was okay. However, this was a little disappointing because I saw trash several times in front of the hallway. Other than that, everything was fine!</p>
                                     <div class="testimonial__author">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="testimonial__author__title">
-                                                    <h5>John Smith</h5>
-                                                    <span>Director Colorlib</span>
+                                                    <h5>Faker</h5>
+                                                    <span>2020-12-01 ~ 2020-12-04</span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="testimonial__author__social">
-                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a href="https://www.facebook.com/fakerkorea"><i class="fa fa-facebook"></i></a>
                                                     <a href="#"><i class="fa fa-twitter"></i></a>
-                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                    <a href="https://www.instagram.com/faker/"><i class="fa fa-instagram"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -427,56 +424,22 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star"></i>
                                     </div>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-                                        omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                                    <p>Every year I come to this hotel to relax. I'm really grateful for bringing me back to having a great experience whenever I do. This year, too, it has provided me with the best service, and I have a belief that I will be able to visit this hotel next year with great anticipation. I hope it stays the same.</p>
                                     <div class="testimonial__author">
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="testimonial__author__title">
-                                                    <h5>Jack Kelly</h5>
-                                                    <span>Director Colorlib</span>
+                                                    <h5>Barack Obama</h5>
+                                                    <span>2020-11-30 ~ 2020-12-07</span>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="testimonial__author__social">
-                                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="testimonial__item">
-                                    <h5>Detailed Review:</h5>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                        fugiat nulla pariatur. Excepteur sint occaecat cupidat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-                                        omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
-                                    <div class="testimonial__author">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="testimonial__author__title">
-                                                    <h5>Richard Hobson</h5>
-                                                    <span>Director Colorlib</span>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6">
-                                                <div class="testimonial__author__social">
-                                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                    <a href="https://www.facebook.com/barackobama/"><i class="fa fa-facebook"></i></a>
+                                                    <a href="https://twitter.com/barackobama"><i class="fa fa-twitter"></i></a>
+                                                    <a href="https://www.instagram.com/barackobama/"><i class="fa fa-linkedin"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -493,24 +456,6 @@
     </section>
     <!-- Testimonial Section End -->
 
-    <!-- Chooseus Section Begin -->
-    <div class="chooseus spad set-bg" data-setbg="{{ url_for('static', filename='customer/img/chooseus-bg.jpg') }}">
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <div class="chooseus__text">
-                        <div class="section-title">
-                            <h5>WHY CHOOSE US</h5>
-                            <h2>Contact us now to get the latest deals and for the next booking</h2>
-                        </div>
-                        <a href="#" class="primary-btn">Booking Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Chooseus Section End -->
-
     <!-- Gallery Section Begin -->
     <section class="gallery spad">
         <div class="gallery__text">
@@ -524,8 +469,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="gallery__title">
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Sunt in culpa qui officia deserunt mollit anim.</p>
+                            <p>The photos you take at the hotel will be one of the most memorable photos of your life. Gum Hotel promises to give you the best memories.
                             <a href="#" class="primary-btn">View Gallery <span class="arrow_right"></span></a>
                         </div>
                     </div>
@@ -533,10 +477,12 @@
             </div>
         </div>
         <div class="gallery__slider owl-carousel">
-            <div class="gallery__item small__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gallery-1.jpg') }}"></div>
-            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gallery-2.jpg') }}"></div>
-            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gallery-3.jpg') }}"></div>
-            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gallery-4.jpg') }}"></div>
+            <div class="gallery__item small__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-1.jpg') }}"></div>
+            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-2.jpg') }}"></div>
+            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-3.jpg') }}"></div>
+            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-4.jpg') }}"></div>
+            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-5.jpg') }}"></div>
+            <div class="gallery__item set-bg" data-setbg="{{ url_for('static', filename='customer/img/gallery/gal-6.jpg') }}"></div>
         </div>
     </section>
     <!-- Gallery Section End -->
@@ -548,54 +494,54 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h5>NEWS & EVENT</h5>
-                        <h2>From Our Blog</h2>
+                        <h2>Apply for the event on Instagram!</h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-3 p-0 order-lg-1 col-md-6 order-md-1">
-                    <div class="latest__blog__pic set-bg" data-setbg="{{ url_for('static', filename='customer/img/latest-blog/lb-1.jpg') }}"></div>
+                    <div class="latest__blog__pic set-bg" data-setbg="{{ url_for('static', filename='customer/img/latest-blog/blog-1.jpg') }}"></div>
                 </div>
                 <div class="col-lg-3 p-0 order-lg-2 col-md-6 order-md-2">
                     <div class="latest__blog__text">
                         <div class="label">Hotel</div>
-                        <h5>Ut enim ad minim veniam, quis nostrud</h5>
-                        <p><i class="fa fa-clock-o"></i> 19th March, 2019</p>
+                        <h5>I made a snowman earlier this year and I want to go again...</h5>
+                        <p><i class="fa fa-clock-o"></i> 11st January, 2020</p>
                         <a href="#">Read More</a>
                     </div>
                 </div>
                 <div class="col-lg-3 p-0 order-lg-3 col-md-6 order-md-4">
-                    <div class="latest__blog__pic set-bg" data-setbg="{{ url_for('static', filename='customer/img/latest-blog/lb-2.jpg') }}"></div>
+                    <div class="latest__blog__pic set-bg" data-setbg="{{ url_for('static', filename='customer/img/latest-blog/blog-2.jpg') }}"></div>
                 </div>
                 <div class="col-lg-3 p-0 order-lg-4 col-md-6 order-md-3">
                     <div class="latest__blog__text">
-                        <div class="label">Restaurant</div>
-                        <h5>Ut enim ad minim veniam, quis nostrud</h5>
-                        <p><i class="fa fa-clock-o"></i> 22th March, 2019</p>
+                        <div class="label">Room</div>
+                        <h5>The rooms were really clean and I liked it!!</h5>
+                        <p><i class="fa fa-clock-o"></i> 29th November, 2020</p>
                         <a href="#">Read More</a>
                     </div>
                 </div>
                 <div class="col-lg-3 p-0 order-lg-6 col-md-6 order-md-5">
                     <div class="latest__blog__pic latest__blog__pic__last__row set-bg"
-                        data-setbg="{{ url_for('static', filename='customer/img/latest-blog/lb-3.jpg') }}"></div>
+                        data-setbg="{{ url_for('static', filename='customer/img/latest-blog/blog-3.jpg') }}"></div>
                 </div>
                 <div class="col-lg-3 p-0 order-lg-5 col-md-6 order-md-6">
                     <div class="latest__blog__text">
                         <div class="label">Travel</div>
-                        <h5>Ut enim ad minim veniam, quis nostrud</h5>
-                        <p><i class="fa fa-clock-o"></i> 25th March, 2019</p>
+                        <h5>I went to the sea right in front of me, but no matter how I take it, a nice picture comes out. lol</h5>
+                        <p><i class="fa fa-clock-o"></i> 2nd December, 2020</p>
                         <a href="#">Read More</a>
                     </div>
                 </div>
                 <div class="col-lg-3 p-0 order-lg-8 col-md-6 order-md-8">
                     <div class="latest__blog__pic latest__blog__pic__last__row set-bg"
-                        data-setbg="{{ url_for('static', filename='customer/img/latest-blog/lb-4.jpg') }}"></div>
+                        data-setbg="{{ url_for('static', filename='customer/img/latest-blog/blog-4.jpg') }}"></div>
                 </div>
                 <div class="col-lg-3 p-0 order-lg-7 col-md-6 order-md-7">
                     <div class="latest__blog__text">
                         <div class="label">Booking</div>
-                        <h5>Ut enim ad minim veniam, quis nostrud</h5>
-                        <p><i class="fa fa-clock-o"></i> 29th March, 2019</p>
+                        <h5>Booking was made really fast and easy.</h5>
+                        <p><i class="fa fa-clock-o"></i> 5th December, 2020</p>
                         <a href="#">Read More</a>
                     </div>
                 </div>
@@ -635,12 +581,12 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="footer__about">
                             <div class="footer__logo">
-                                <a href="#"><img src="{{ url_for('static', filename='customer/img/logo.png') }}" alt=""></a>
+                                <a href="indexEng"><img src="{{ url_for('static', filename='customer/img/logo3.png') }}" alt=""></a>
                             </div>
-                            <h4>(123) 456-78-91096</h4>
+                            <h4>031-400-1005</h4>
                             <ul>
-                                <li>Ernser Vista Suite 437, NY</li>
-                                <li>Info.colorlib@gmail.com</li>
+                                <li>Gyeongido Ansansi Sanglokgu Hanyang road 55, Republic of Korea</li>
+                                <li>Itmomhotel@gmail.com</li>
                             </ul>
                             <div class="footer__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -654,17 +600,17 @@
                         <div class="footer__widget">
                             <h4>Quick Link</h4>
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Booking</a></li>
-                                <li><a href="#">About Us</a></li>
+                                <li><a href="indexEng">Home</a></li>
+                                <li><a href="reservationEng">Booking</a></li>
+                                <li><a href="aboutEng">About Us</a></li>
                                 <li><a href="#">Review</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="contactEng">Contact</a></li>
                             </ul>
                             <ul>
                                 <li><a href="#">Services</a></li>
-                                <li><a href="#">Our Room</a></li>
+                                <li><a href="roomEng">Our Room</a></li>
                                 <li><a href="#">Restaurants</a></li>
-                                <li><a href="#">Payments</a></li>
+                                <li><a href="reservationcheckEng">Reservation Check</a></li>
                                 <li><a href="#">Events</a></li>
                             </ul>
                         </div>
@@ -694,7 +640,7 @@
                     <div class="col-lg-7 col-md-7">
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         <div class="footer__copyright__text">
-                            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Itmomhotel</a></p>
                         </div>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </div>
@@ -718,6 +664,6 @@
     <script src="{{ url_for('static', filename='customer/js/jquery.slicknav.js') }}" > </script>
     <script src="{{ url_for('static', filename='customer/js/owl.carousel.min.js') }}" > </script>
     <script src="{{ url_for('static', filename='customer/js/main.js') }}" > </script>
-</body>
+  </body>
 
-</html>
+  </html>
