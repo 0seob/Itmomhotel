@@ -33,35 +33,38 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w" action="/manager/register_info" method="POST">
+				<form class="login100-form validate-form flex-sb flex-w" action="/manager/update" method="POST">
 					<span class="login100-form-title p-b-51">
 						Register
 					</span>
 
-
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "Employee_Name is required">
-						<input class="input100" type="text" name="Employee_Name" placeholder="이름">
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Employee_id is required">
+						<input class="input100" type="text" name="Employee_id" placeholder="Employee_id">
 						<span class="focus-input100"></span>
 					</div>
-					<div style ="text-align:center;">
-						<fieldset>
-							남 <input type="radio" name="Gender" value="남" >
-							여 <input type="radio" name="Gender" value="여" > 
-						</fieldset>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Employee_Name is required">
+						<input class="input100" type="text" name="Employee_Name" placeholder="Employee_Name">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Gender is required">
+						<input class="input100" type="text" name="Gender" placeholder="Gender (Male / Female)">
+						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Account_Number is required">
-						<input class="input100" type="text" name="Account_Number" placeholder="계좌번호 (000-000-000-000)">
+						<input class="input100" type="text" name="Account_Number" placeholder="Account Number (000-000-000-000)">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Salary is required">
-						<input class="input100" type="text" name="Salary" placeholder="연봉">
+						<input class="input100" type="text" name="Salary" placeholder="Salary">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "On_work is required">
-						<input class="input100" type="text" name="On_work" placeholder="근무">
+						<input class="input100" type="text" name="On_work" placeholder="On_work">
 						<span class="focus-input100"></span>
 					</div>
 

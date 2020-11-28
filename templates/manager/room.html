@@ -104,36 +104,24 @@
                                         추가
                                 </button>
                             </div>
-                            <div class="card-body">
+                            <div class="card mb-4">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>호실ID</th>
                                                 <th>호실번호</th>
-                                                <th>담당직원</th>
-                                                <th>Type</th>
-                                                <th>Class</th>
-                                                <th></th>
+                                                <th>층</th>
+                                                <th>수용인원</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>DS101</td>
-                                                <td>101</td>
-                                                <td>황인재</td>
-                                                <td>Double</td>
-                                                <td>Suite</td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td>SS102</td>
-                                                <td>102</td>
-                                                <td>이영섭</td>
-                                                <td>Single</td>
-                                                <td>Suite</td>
-                                                <td></td>
-                                            </tr>
+                                            {% for i in data_list %}
+                                                <tr>
+                                                    <td>{{ i[0] }}</td>
+                                                    <td>{{ i[1] }}</td>
+                                                    <td>{{ i[2] }}</td>
+                                                </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>

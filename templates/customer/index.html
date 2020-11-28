@@ -138,23 +138,22 @@
                         <h2>당신을 위한 최고의</h2>
                         <h2>선택을 경험하십시오.</h2>
                     </div>
-                    <form action="/reservation" class="filter__form" method = "post">
+                    <form action="/reservation" method="post" class="filter__form">
                         <div class="filter__form__item">
-                          <p>체크 인</p>
-
-                              <span class="icon_calendar"></span>
-                              <input type="text" id = "date" name = "date">
-
-                              연도:<p id="year"></p>
-
-                      </div>
-                      <div class="filter__form__item">
-                          <p>체크 아웃</p>
-
-                              <span class="icon_calendar"></span>
-                              <input type="text" id = "date1" name = "date1">
-
-                              연도:<p id="year1"></p>
+                            <p>체크 인</p>
+                            <div class="filter__form__datepicker">
+                                <span class="icon_calendar"></span>
+                                <input type="text" class="datepicker_pop check__in" id = "date" name = "date">
+                                <i class="arrow_carrot-down"></i>
+                            </div>
+                        </div>
+                        <div class="filter__form__item">
+                            <p>체크 아웃</p>
+                            <div class="filter__form__datepicker">
+                                <span class="icon_calendar"></span>
+                                <input type="text" class="datepicker_pop check__out" id = "date1" name = "date1">
+                                <i class="arrow_carrot-down"></i>
+                            </div>
                         </div>
                         <div class="filter__form__item filter__form__item--select">
                             <p>어른</p>
@@ -675,59 +674,35 @@
     <script src="{{ url_for('static', filename='customer/js/main.js') }}" > </script>
     <script type="text/javascript">
     $(function () {
-        $("#date").datepicker({
-            dateFormat:"yy/mm/dd",
-            dayNamesMin:["일","월","화","수","목","금","토"],
-            monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
+        $("#sum").datepicker({
             onSelect:function(d){
-                alert(d+" 선택되었습니다");
+            var arr=d.split("/");
+            var year=arr[0];
+            var month=arr[1];
+            var day=arr[2];
+            var sum=arr[0]+arr[1]+arr[2];
 
-                var arr=d.split("/");
-                var year=arr[0];
-                var month=arr[1];
-                var day=arr[2];
-                var sum=arr[0]+arr[1]+arr[2]
-
-                $("#year").text(sum);
-                $("#month").text(month);
-                $("#day").text(day);
-
-                var date=new Date($("#date").datepicker({dateFormat:"yy/mm/dd"}).val());
-
-                week=new Array("일","월","화","수","목","금","토");
-                $("#mydate").text(week[date.getDay()]);
-            }
-        });
-
+            var date=new Date($("#date").datepicker({dateFormat:"yy/mm/dd"}).val());
+        }
     });
-    </script>
-    <script type="text/javascript">
-    $(function () {
-        $("#date1").datepicker({
-            dateFormat:"yy/mm/dd",
-            dayNamesMin:["일","월","화","수","목","금","토"],
-            monthNames:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],
-            onSelect:function(d){
-                alert(d+" 선택되었습니다");
+});
+</script>
+<script type="text/javascript">
+$(function () {
+    $("#date1").datepicker({
+        onSelect:function(d){
+        var arr=d.split("/");
+        var year=arr[0];
+        var month=arr[1];
+        var day=arr[2];
+        var sum=arr[0]+arr[1]+arr[2];
 
-                var arr=d.split("/");
-                var year=arr[0];
-                var month=arr[1];
-                var day=arr[2];
-                var sum=arr[0]+arr[1]+arr[2]
+        var date=new Date($("#date1").datepicker({dateFormat:"yy/mm/dd"}).val());
+    }
+});
 
-                $("#year1").text(sum);
-                $("#month").text(month);
-                $("#day").text(day);
-
-                var date=new Date($("#date").datepicker({dateFormat:"yy/mm/dd"}).val());
-                week=new Array("일","월","화","수","목","금","토");
-                $("#mydate").text(week[date.getDay()]);
-            }
-        });
-
-    });
-    </script>
+});
+</script>
 </body>
 
 </html>

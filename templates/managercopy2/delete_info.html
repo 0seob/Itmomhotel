@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Register Success</title>
+	<title>Employee_info Delete</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -33,14 +33,25 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w" action="/login" method="POST">
+				<form class="login100-form validate-form flex-sb flex-w" action="/manager/delete_info" method="POST">
 					<span class="login100-form-title p-b-51">
-						Register Success
+						Delete
 					</span>
+
+					
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Employee_id is required">
+						<input class="input100" type="text" name="Employee_id" placeholder="Employee_id">
+						<span class="focus-input100"></span>
+					</div>
+					
+					
+
+					<div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn" type="submit">
+							Delete
+						</button>
+					</div>
 				</form>
-				<br>
-				<center> <u> <a href="/check_id">More regist</a> </u> </center>
-				<center> <u> <a href="/login">Login</a> </u> </center>
 			</div>
 		</div>
 	</div>

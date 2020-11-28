@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Manager Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/bootstrap/css/bootstrap.min.css')}}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/animate/animate.css')}}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/css-hamburgers/hamburgers.min.css')}}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/animsition/css/animsition.min.css')}}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/select2/select2.min.css')}}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/daterangepicker/daterangepicker.css')}}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/css/util.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/css/main.css')}}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>방번호</th>
+                                                <th>방타입</th>
+                                                <th>방등급</th>
+                                                <th>수용인원</th>
+                                                <th>가격</th>
+                                                <th>체크인</th>
+                                                <th>체크아웃</th>
+                                                <th>예약고객</th>
+                                                <th>전화번호</th>
+                                                <th>차 번호</th>
+                                                <th>차 위치</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for i in data %}
+                                            <tr>
+                                                <td>{{ i[0] }}</td>
+                                                <td>{{ i[1] }}</td>
+                                                <td>{{ i[2] }}</td>
+                                                <td>{{ i[3] }}</td>
+                                                <td>{{ i[4] }}</td>
+                                                <td>{{ i[5] }}</td>
+                                                <td>{{ i[6] }}</td>
+                                                <td>{{ i[7] }}</td>
+                                                <td>{{ i[8] }}</td>
+                                                <td>{{ i[9] }}</td>
+                                                <td>{{ i[10] }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='manager/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='manager/vendor/animsition/js/animsition.min.js')}}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='manager/vendor/bootstrap/js/popper.js')}}"></script>
+    <script src="{{ url_for('static', filename='manager/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='manager/vendor/select2/select2.min.js')}}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='manager/vendor/daterangepicker/moment.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='manager/vendor/daterangepicker/daterangepicker.js')}}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='manager/vendor/countdowntime/countdowntime.js')}}"></script>
+<!--===============================================================================================-->
+    <script src="{{ url_for('static', filename='manager/js/main.js')}}"></script>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <script>
+            alert('{{message}}')
+        </script>
+        {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+</body>
+</html>

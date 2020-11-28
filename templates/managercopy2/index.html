@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>관리자 페이지 - 예약</title>
+        <title>관리자 페이지 - Home</title>
         <link href="{{ url_for('static', filename='manager/css/styles.css')}}" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -20,13 +20,15 @@
         </style>
     </head>
     <body class="sb-nav-fixed">
+
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index">관리자 페이지</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
                 <span style = "color: white;">
-                    Welcome, 직원 ID
+                    Welcome
                 </span>
             </form>
             <!-- Navbar-->
@@ -36,11 +38,12 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <a class="dropdown-item" href="#">Settings</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="login">Logout</a>
+                        <a class="dropdown-item" href="/manager/login">Logout</a>
                     </div>
                 </li>
             </ul>
         </nav>
+
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -50,6 +53,7 @@
                             <a class="nav-link" href="index">
                                 Home
                             </a>
+
                             <div class="sb-sidenav-menu-heading">Detail</div>
                             <a class="nav-link" href="parking">
                                 주차
@@ -86,56 +90,78 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
+                        <br><br>
+                        <center><h1 class="mb-4">관리자 페이지</h1></center>
                         <br>
-                        <center><h1 class="mt-4">예약</h1></center>
-                        <br>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <button style="float:right; border: 1px solid; background-color:#007bff; color:white; padding:5px;"
-                                        onclick="window.open('login','#','width=430,height=500,location=no,status=no,scrollbars=yes');">
-                                        제거
-                                </button>
-                                <button style="float:right; border: 1px solid; background-color:#007bff; color:white; padding:5px;"
-                                        onclick="window.open('login','#','width=430,height=500,location=no,status=no,scrollbars=yes');">
-                                        추가
-                                </button>
-                                <button style="float:right; border: 1px solid; background-color:#007bff; color:white; padding:5px;"
-                                        onclick="window.open('search_reserv','#','width=430,height=500,location=no,status=no,scrollbars=yes');">
-                                        검색
-                                </button>
+
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                   <center>
+                                        <div class="card-body">주차</div>
+                                        <a class="small text-white stretched-link" href="parking"></a>
+                                    </center>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>방번호</th>
-                                                <th>체크인</th>
-                                                <th>체크아웃</th>
-                                                <th>예약고객</th>
-                                                <th>전화번호</th>
-                                                <th>차 번호</th>
-                                                <th>차 위치</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for i in data %}
-                                            <tr>
-                                                <td>{{ i[0] }}</td>
-                                                <td>{{ i[1] }}</td>
-                                                <td>{{ i[2] }}</td>
-                                                <td>{{ i[3] }}</td>
-                                                <td>{{ i[4] }}</td>
-                                                <td>{{ i[5] }}</td>
-                                                <td>{{ i[6] }}</td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <center>
+                                        <div class="card-body">예약</div>
+                                        <a class="small text-white stretched-link" href="reservation"></a>
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <center>
+                                        <div class="card-body">업무</div>
+                                        <a class="small text-white stretched-link" href="task"></a>
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <center>
+                                        <div class="card-body">호실 관리</div>
+                                        <a class="small text-white stretched-link" href="room"></a>
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-info text-white mb-4">
+                                    <center>
+                                        <div class="card-body">고객 관리</div>
+                                        <a class="small text-white stretched-link" href="customer"></a>
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-secondary text-white mb-4">
+                                    <center>
+                                        <div class="card-body">비품 관리</div>
+                                        <a class="small text-white stretched-link" href="product"></a>
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-dark text-white mb-4">
+                                    <center>
+                                        <div class="card-body">직원 관리</div>
+                                        <a class="small text-white stretched-link" href="employee"></a>
+                                    </center>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-dark text-white mb-4">
+                                    <center>
+                                        <div class="card-body">고객 설문</div>
+                                        <a class="small text-white stretched-link" href="survey"></a>
+                                    </center>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">

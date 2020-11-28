@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Register Success</title>
 	<meta charset="UTF-8">
+	<title>비밀번호 번호</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -14,13 +14,13 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/animate/animate.css')}}">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/css-hamburgers/hamburgers.min.css')}}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/animsition/css/animsition.min.css')}}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/select2/select2.min.css')}}">
-<!--===============================================================================================-->	
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/vendor/daterangepicker/daterangepicker.css')}}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/css/util.css')}}">
@@ -29,25 +29,61 @@
 
 </head>
 <body>
-	
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w" action="/login" method="POST">
+				<form class="login100-form validate-form flex-sb flex-w" action="/manager/update_info" method="POST">
 					<span class="login100-form-title p-b-51">
-						Register Success
+						정보변경
 					</span>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Name is required">
+						<input class="input100" type="text" name="Employee_Name" placeholder="Employee_Name">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Gender is required">
+						<input class="input100" type="text" name="Gender" placeholder="성별">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Account_Number is required">
+						<input class="input100" type="text" name="Account_Number" placeholder="계좌번호">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Salary is required">
+						<input class="input100" type="text" name="Salary" placeholder="연봉">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "On_work is required">
+						<input class="input100" type="text" name="On_work" placeholder="근무">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-16" data-validate = "Employee_Info_Id is required">
+						<input class="input100" type="text" name="Employee_Info_Id" placeholder="Employee_Info_Id">
+						<span class="focus-input100"></span>
+					</div>
+
+					
+
+					<div class="container-login100-form-btn m-t-17">
+						<button class="login100-form-btn" type="submit">
+							확인
+						</button>
+					</div>
 				</form>
 				<br>
-				<center> <u> <a href="/check_id">More regist</a> </u> </center>
-				<center> <u> <a href="/login">Login</a> </u> </center>
 			</div>
 		</div>
 	</div>
-	
+
 
 	<div id="dropDownSelect1"></div>
-	
+
 <!--===============================================================================================-->
 	<script src="{{ url_for('static', filename='manager/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->
