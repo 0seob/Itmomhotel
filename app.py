@@ -189,7 +189,17 @@ def mlogin():
 def mparking():
     if not session.get('username'):
         return render_template('manager/login.html')
-    return render_template('manager/parking.html')
+
+    db = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+    cur = db.cursor()
+
+    sql = "SELECT car_num, room_id, parking_location from parking"
+    cur.execute(sql)
+    tm = time.strftime('%Y%m%d')
+    print (tm)
+
+    data_list = cur.fetchall()
+    return render_template('manager/parking.html',data_list = data_list)
 
 @app.route('/manager/password')
 def mpassword():
@@ -439,6 +449,32 @@ def search():
         cursor.close()
         conn.close()
     return render_template('manager/search.html', error=error)
+
+
+@app.route('/manager/search_parking', methods=['post', 'get'])
+def psearch():
+    error = None
+    if request.method == 'POST':
+
+        search_room_id = request.form['search_room_id']
+
+        print (search_room_id)
+
+        conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+        cursor = conn.cursor()
+
+        query = "SELECT car_num, room_id, parking_location from parking where room_id = '%s'" % (search_room_id)
+        cursor.execute(query)
+        data_list = cursor.fetchall()
+        print(data_list)
+        if data_list:
+            return render_template('manager/search_success_parking.html', data_list = data_list)
+        else:
+            return render_template('manager/search_fail_parking.html', error = error)
+
+        cursor.close()
+        conn.close()
+    return render_template('manager/search_parking.html', error=error)
 
 @app.route('/manager/search_reserv', methods=['post', 'get'])
 def search_reserv():

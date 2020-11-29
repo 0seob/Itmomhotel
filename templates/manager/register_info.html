@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script language=javascript>
+moveTo(0,0)
+resizeTo(600,800)
+</script>
 	<title>Manager Register</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,18 +41,25 @@
 					<span class="login100-form-title p-b-51">
 						Register
 					</span>
+					
 
-
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "Employee_Name is required">
+					<div class="wrap-input100 validate-input" data-validate = "Employee_Name is required">
 						<input class="input100" type="text" name="Employee_Name" placeholder="이름">
 						<span class="focus-input100"></span>
 					</div>
-					<div style ="text-align:center;">
-						<fieldset>
-							남 <input type="radio" name="Gender" value="남" >
-							여 <input type="radio" name="Gender" value="여" > 
-						</fieldset>
+
+					<div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin:5px auto;">
+						<label class="btn btn-primary btn-block">
+							<input type="radio" name="Gender" value="남"> Male
+						</label>
+						<label class="btn btn-primary">
+							<input type="radio" name="Gender" value="여"> Female
+						</label>
 					</div>
+
+					<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+					<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Account_Number is required">
 						<input class="input100" type="text" name="Account_Number" placeholder="계좌번호 (000-000-000-000)">

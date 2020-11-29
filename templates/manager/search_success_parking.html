@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <script language=javascript>
 moveTo(0,0)
-resizeTo(1200,600)
+resizeTo(800,600)
 </script>
-    <title>Search Reservaion</title>
+    <title>Search Parking Location</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -30,6 +32,11 @@ resizeTo(1200,600)
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='manager/css/main.css')}}">
 <!--===============================================================================================-->
+<style>
+            body{
+                font-family: 'Noto Sans KR', sans-serif;
+            }
+        </style>
 </head>
 <body>
 <br><br><br>
@@ -42,34 +49,17 @@ resizeTo(1200,600)
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>방번호</th>
-                                                <th>방타입</th>
-                                                <th>방등급</th>
-                                                <th>수용인원</th>
-                                                <th>가격</th>
-                                                <th>체크인</th>
-                                                <th>체크아웃</th>
-                                                <th>예약고객</th>
-                                                <th>전화번호</th>
                                                 <th>차 번호</th>
-                                                <th>차 위치</th>
-
+                                                <th>방 번호</th>
+                                                <th>주차 위치</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {% for i in data %}
+                                            {% for i in data_list %}
                                             <tr>
                                                 <td>{{ i[0] }}</td>
                                                 <td>{{ i[1] }}</td>
                                                 <td>{{ i[2] }}</td>
-                                                <td>{{ i[3] }}</td>
-                                                <td>{{ i[4] }}</td>
-                                                <td>{{ i[5] }}</td>
-                                                <td>{{ i[6] }}</td>
-                                                <td>{{ i[7] }}</td>
-                                                <td>{{ i[8] }}</td>
-                                                <td>{{ i[9] }}</td>
-                                                <td>{{ i[10] }}</td>
                                             </tr>
                                             {% endfor %}
                                         </tbody>

@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script language=javascript>
-moveTo(0,0)
-resizeTo(1200,600)
-</script>
-    <title>Search Reservaion</title>
+    <title>Search Parking Location</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -32,50 +28,31 @@ resizeTo(1200,600)
 <!--===============================================================================================-->
 </head>
 <body>
-<br><br><br>
-<span class="login100-form-title p-b-51">
-                        SEARCH RESULT
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-50 p-b-90">
+                <form class="login100-form validate-form flex-sb flex-w" action="/manager/search_parking" method="POST">
+                    <span class="login100-form-title p-b-51">
+                        SEARCH PARKING LOCATION
                     </span>
 
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>방번호</th>
-                                                <th>방타입</th>
-                                                <th>방등급</th>
-                                                <th>수용인원</th>
-                                                <th>가격</th>
-                                                <th>체크인</th>
-                                                <th>체크아웃</th>
-                                                <th>예약고객</th>
-                                                <th>전화번호</th>
-                                                <th>차 번호</th>
-                                                <th>차 위치</th>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate = "Room ID is required">
+                        <input class="input100" type="text" name="search_room_id" placeholder="Room ID">
+                        <span class="focus-input100"></span>
+                    </div>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for i in data %}
-                                            <tr>
-                                                <td>{{ i[0] }}</td>
-                                                <td>{{ i[1] }}</td>
-                                                <td>{{ i[2] }}</td>
-                                                <td>{{ i[3] }}</td>
-                                                <td>{{ i[4] }}</td>
-                                                <td>{{ i[5] }}</td>
-                                                <td>{{ i[6] }}</td>
-                                                <td>{{ i[7] }}</td>
-                                                <td>{{ i[8] }}</td>
-                                                <td>{{ i[9] }}</td>
-                                                <td>{{ i[10] }}</td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+
+
+                    <div class="container-login100-form-btn m-t-17">
+                        <button class="login100-form-btn" type="submit">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
     <div id="dropDownSelect1"></div>
