@@ -112,6 +112,7 @@
                                                 <th>호실번호</th>
                                                 <th>층</th>
                                                 <th>수용인원</th>
+                                                <th>이용</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -120,6 +121,11 @@
                                                     <td>{{ i[0] }}</td>
                                                     <td>{{ i[1] }}</td>
                                                     <td>{{ i[2] }}</td>
+                                                    {% if i[3] == 1 %}
+                                                        <td>{{ "이용중" }}</td>
+                                                    {% else %}
+                                                        <td>{{"이용x"}}</td>
+                                                    {% endif %}
                                                 </tr>
                                             {% endfor %}
                                         </tbody>

@@ -93,17 +93,46 @@ def reservation():
     conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
     cursor = conn.cursor()
 
-    query = "SELECT room_id FROM reservation WHERE ({0} >= check_in_date and {1} <= check_out_date) or ({2} >= check_in_date and {3} <= check_out_date) or ({4} <= check_in_date and {5} >= check_out_date) ".format (int(ind), int(ind), int(outd), int(outd), int(ind), int(outd))
+    query = "SELECT room_id FROM reservation WHERE (({0} >= check_in_date and {1} <= check_out_date) or ({2} >= check_in_date and {3} <= check_out_date) or ({4} <= check_in_date and {5} >= check_out_date)) ".format (int(ind), int(ind), int(outd), int(outd), int(ind), int(outd))
     #value = (email)
     cursor.execute(query)
     data = cursor.fetchall()
+    conn.commit()
 
     if data:
-        print(data)
+        for i in data:
+            print(i)
+
     else:
         print("can reservation")
 
-    return render_template('customer/reservation.html')
+
+    query1 = "SELECT room_id from room order by room_id"
+    cursor.execute(query1)
+    data1 = cursor.fetchall()
+    conn.commit()
+    arr= []
+    for i in data1:
+        arr.append(i)
+
+    for i in data:
+        for j in arr:
+            if i[0] == j[0]:
+                arr.remove(i)
+    print("ㅡㅡㅡㅡㅡㅡㅡ")
+
+    arr1 = []
+    for i in arr:
+        jinquery = "select Room_id, Class, room_type, Capacity from room natural join room_info where room_id = {}".format(i[0])
+        cursor.execute(jinquery)
+        data2 = cursor.fetchall()
+        arr1.append(data2)
+        conn.commit()
+
+    for i in arr1:
+        print(i)
+
+    return render_template('customer/reservation.html', arr1 = arr1)
 
 @app.route('/reservationEng')
 def reservationEng():
@@ -141,9 +170,59 @@ def rooms():
 def roomsEng():
     return render_template('customer/roomsEng.html')
 
-@app.route('/reservationcheck')
+@app.route('/reservationcheck', methods=['post', 'get'])
 def reservationcheck():
+    error = None
+    if request.method == 'POST':
+
+        Reservation_id = request.form['Reservation_id']
+
+        print (Reservation_id)
+
+        conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+        cursor = conn.cursor()
+
+        query = "SELECT Reservation_id,Customer_Name,Room_id,Class,Room_Type,Capacity,Fee,check_in_Date,Check_Out_Date from Reservation natural join Room_Info where Reservation_id = '%s'" %(Reservation_id)
+        cursor.execute(query)
+        data = cursor.fetchall()
+        print(data)
+        if data:
+            return render_template('customer/search_cus_reserv.html', data = data)
+        else:
+            return render_template('customer/search_fail_reserv.html', error = error)
+
+        cursor.close()
+        conn.close()
+
+
     return render_template('customer/reservationcheck.html')
+@app.route('/reservationcheck_1', methods=['post', 'get'])
+def reservationcheck_1():
+    error = None
+    if request.method == 'POST':
+
+        Customer_Name = request.form['Customer_Name']
+        Phone_number = request.form['Phone_number']
+
+        print(Customer_Name,Phone_number)
+
+        conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+        cursor = conn.cursor()
+
+        query = "SELECT Reservation_id,Customer_Name,Room_id,Class,Room_Type,Capacity,Fee,check_in_Date,Check_Out_Date from Reservation natural join Room_Info where Phone_number = '%s'"%(Phone_number)
+        cursor.execute(query)
+        data = cursor.fetchall()
+        print(data)
+        if data:
+            return render_template('customer/search_cus_reserv.html', data = data)
+        else:
+            return render_template('customer/search_fail_reserv_1.html', error = error)
+
+        cursor.close()
+        conn.close()
+
+
+    return render_template('customer/reservationcheck_1.html')
 
 @app.route('/reservationcheckEng')
 def reservationcheckEng():
@@ -227,17 +306,36 @@ def mreservation():
     db = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
     cur = db.cursor()
 
-    sql = "select Room_id,check_in_Date,Check_Out_Date,Customer_Name,Phone_number,Car_num,Parking_location from reservation order by Check_in_Date ASC"
+    sql = "select Reservation_id,Room_id,check_in_Date,Check_Out_Date,Customer_Name,Phone_number,Car_num,Parking_location from reservation order by Check_in_Date ASC"
     cur.execute(sql)
-    tm = time.strftime('%Y%m%d')
-
     data = cur.fetchall()
+
+    tm = int(time.strftime('%Y%m%d'))
+
+
+
     for i in data:
-        if tm != i[2]:
-            print(i[2])
+        if tm == i[3]:
+            sql = "delete from reservation where Check_Out_Date = '%s'" %(i[3])
+            cur.execute(sql)
+            data2 = cur.fetchall()
+            db.commit()
+            sql2 = "update room set room_on = 0 where Room_id = '%s'" %(i[1])
+            cur.execute(sql2)
+            data3 = cur.fetchall()
+            db.commit()
+        elif tm >= i[2] and tm < i[3]:
+            print("ok")
+            sql = "update room set room_on = 1 where Room_id = '%s'" %(i[1])
+            cur.execute(sql)
+            data1 = cur.fetchall()
+            db.commit()
+
+    cur.close()
+    db.close()
+
 
     return render_template('manager/reservation.html',data = data)
-
 @app.route('/manager/update')
 def mupdate():
     if not session.get('username'):
@@ -689,7 +787,7 @@ def regist_info():
         cursor.close()
         conn.close()
     return render_template('manager/register_info.html', error=error)
-@app.route('/manager/delete_info', methods=['post', 'get'])
+
 @app.route('/manager/delete_info', methods=['post', 'get'])
 def delete_info():
     error = None
