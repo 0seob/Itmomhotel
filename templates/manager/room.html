@@ -104,7 +104,7 @@
                                         추가
                                 </button>
                             </div>
-                            <div class="card mb-4">
+                            <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
@@ -124,7 +124,7 @@
                                                     {% if i[3] == 1 %}
                                                         <td>{{ "이용중" }}</td>
                                                     {% else %}
-                                                        <td>{{"이용x"}}</td>
+                                                        <td>{{ "이용x" }}</td>
                                                     {% endif %}
                                                 </tr>
                                             {% endfor %}

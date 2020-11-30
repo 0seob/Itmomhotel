@@ -92,7 +92,11 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <button style="float:right; border: 1px solid; background-color:#007bff; color:white; padding:5px;"
-                                        onclick="window.open('search_reserv','#','width=430,height=500,location=no,status=no,scrollbars=yes');">
+                                        onclick="window.open('reserve','#','width=430,height=500,location=no,status=no,scrollbars=yes');">
+                                        변경
+                                </button>
+                                <button style="float:right; border: 1px solid; background-color:#007bff; color:white; padding:5px;"
+                                        onclick="window.open('search','#','width=430,height=500,location=no,status=no,scrollbars=yes');">
                                         검색
                                 </button>
                             </div>
@@ -101,6 +105,7 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
+                                                <th>예약번호</th>
                                                 <th>방번호</th>
                                                 <th>체크인</th>
                                                 <th>체크아웃</th>
@@ -120,6 +125,7 @@
                                                 <td>{{ i[4] }}</td>
                                                 <td>{{ i[5] }}</td>
                                                 <td>{{ i[6] }}</td>
+                                                <td>{{ i[7] }}</td>
                                             </tr>
                                             {% endfor %}
                                         </tbody>

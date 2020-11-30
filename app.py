@@ -123,7 +123,7 @@ def reservation():
 
     arr1 = []
     for i in arr:
-        jinquery = "select Room_id, Class, room_type, Capacity from room natural join room_info where room_id = {}".format(i[0])
+        jinquery = "SELECT Room_id, Class, room_type, Capacity from room natural join room_info where room_id = {}".format(i[0])
         cursor.execute(jinquery)
         data2 = cursor.fetchall()
         arr1.append(data2)
@@ -242,7 +242,16 @@ def mindex():
 def mcustomer():
     if not session.get('username'):
         return render_template('manager/login.html')
-    return render_template('manager/customer.html')
+
+    db = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+    cur = db.cursor()
+
+    sql = "select customer_name, phone_number, car_num from reservation"
+    cur.execute(sql)
+
+    data_list = cur.fetchall()
+
+    return render_template('manager/customer.html', data_list=data_list)
 
 @app.route('/manager/employee')
 def memployee():
@@ -272,7 +281,7 @@ def mparking():
     db = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
     cur = db.cursor()
 
-    sql = "SELECT car_num, room_id, parking_location from parking"
+    sql = "SELECT car_num, room_id, parking_location from reservation"
     cur.execute(sql)
     tm = time.strftime('%Y%m%d')
     print (tm)
@@ -299,6 +308,7 @@ def mregister():
     return render_template('manager/register.html')
 
 @app.route('/manager/reservation')
+
 def mreservation():
     if not session.get('username'):
         return render_template('manager/login.html')
@@ -325,7 +335,7 @@ def mreservation():
             data3 = cur.fetchall()
             db.commit()
         elif tm >= i[2] and tm < i[3]:
-            print("ok")
+            print(i[1])
             sql = "update room set room_on = 1 where Room_id = '%s'" %(i[1])
             cur.execute(sql)
             data1 = cur.fetchall()
@@ -336,6 +346,60 @@ def mreservation():
 
 
     return render_template('manager/reservation.html',data = data)
+
+@app.route('/manager/reserve', methods=['post', 'get'])
+def reservation_update():
+    error = None
+    if request.method == 'POST':
+
+        global Reservation_id
+        Reservation_id = request.form['Reservation_id']
+        print(Reservation_id)
+
+        conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+        cursor = conn.cursor()
+        query = "SELECT * FROM Reservation WHERE Reservation_id = '%s'" %(Reservation_id)
+        cursor.execute(query)
+        data = cursor.fetchall()
+
+        if data:
+            print("success")
+            return render_template('manager/reservation_update.html', error=error)
+        else:
+            print("failed")
+            return render_template('manager/reservation_update_fail.html', error=error)
+
+        cursor.close()
+        conn.close()
+    return render_template('manager/reserve.html', error=error)
+
+@app.route('/manager/reservation_update', methods=['post', 'get'])
+def reservation_update_info():
+    error = None
+    if request.method == 'POST':
+
+        Room_id = request.form['Room_id']
+        Phone_number = request.form['Phone_number']
+        Car_num = request.form['Car_num']
+        Parking_location = request.form['Parking_location']
+
+        print(Room_id, Phone_number, Car_num, Parking_location)
+
+        conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+        cursor = conn.cursor()
+
+        query = "UPDATE Reservation SET Room_id = '%s'" %(Room_id) + ", Phone_number = '%s'" %(Phone_number) + ", Car_num = '%s'" %(Car_num) + ", Parking_location = '%s'" %(Parking_location) + " where Reservation_id = '%s'" %(Reservation_id)
+        cursor.execute(query)
+        data = cursor.fetchall()
+        conn.commit()
+        print(data)
+
+        return render_template('manager/reservation_update_success.html', error=error)
+
+        cursor.close()
+        conn.close()
+    return render_template('manager/reservation_update.html', error=error)
+
 @app.route('/manager/update')
 def mupdate():
     if not session.get('username'):
@@ -349,7 +413,7 @@ def mroom():
     db = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
     cur = db.cursor()
 
-    sql = "select Room_id, Room_floor, Capacity from room natural join room_info order by Room_id ASC"
+    sql = "select Room_id, Room_floor, Capacity, Room_on from room natural join room_info order by Room_id ASC"
     cur.execute(sql)
     tm = time.strftime('%Y%m%d')
     print (tm)
@@ -367,7 +431,43 @@ def msurvey():
 def mtask():
     if not session.get('username'):
         return render_template('manager/login.html')
-    return render_template('manager/task.html')
+
+    db = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+    cur = db.cursor()
+
+    sql = "SELECT task_id, task, extra_fee from task"
+    cur.execute(sql)
+    tm = time.strftime('%Y%m%d')
+    print (tm)
+
+    data_list = cur.fetchall()
+    return render_template('manager/task.html',data_list = data_list)
+
+@app.route('/manager/register_task', methods=['post', 'get'])
+def taskregist():
+    error = None
+    if request.method == 'POST':
+
+        task = request.form['task']
+        extra_fee = request.form['extra_fee']
+
+        conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+        cursor = conn.cursor()
+
+        query = "INSERT INTO task (task, extra_fee) values (%s, %s)"
+        value = (task, extra_fee)
+        cursor.execute(query, value)
+        data = cursor.fetchall()
+        print (data)
+        if not data:
+            conn.commit()
+            print (data)
+            return render_template('manager/register_task_success.html', error=error)
+
+        cursor.close()
+        conn.close()
+    return render_template('manager/register_task.html')
+
 
 @app.route('/home')
 def home():
@@ -742,6 +842,50 @@ def delete():
         cursor.close()
         conn.close()
     return render_template('/manager/delete.html', error=error)
+
+
+@app.route('/manager/delete_task', methods=['post', 'get'])
+def delete_task():
+    error = None
+    if request.method == 'POST':
+
+        task_id = request.form['task_id']
+
+        print (task_id)
+
+        conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+        cursor = conn.cursor()
+
+        query = "SELECT task_id FROM task WHERE task_id = '%s' " % (task_id)
+
+        cursor.execute(query)
+        data = cursor.fetchall()
+        print(data)
+
+        if data:
+            print("start delete")
+            query = "DELETE FROM task where task_id = %s "
+            value = (task_id)
+            cursor.execute(query,value)
+            data = cursor.fetchall()
+            print (data)
+            if not data:
+                conn.commit()
+                print (data)
+                return render_template('manager/delete_task_success.html', error=error)
+            else:
+                conn.rollback()
+                print (data)
+                return render_template('manager/delete_task_fail.html', error=error)
+        else:
+            print("NO")
+            return render_template('manager/delete_task_fail.html', error=error)
+
+
+        cursor.close()
+        conn.close()
+    return render_template('/manager/delete_task.html', error=error)
+
 @app.route('/manager/register_info', methods=['post', 'get'])
 def regist_info():
     error = None
