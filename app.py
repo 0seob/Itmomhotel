@@ -425,7 +425,17 @@ def mroom():
 def msurvey():
     if not session.get('username'):
         return render_template('manager/login.html')
-    return render_template('manager/survey.html')
+
+    db = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+    cur = db.cursor()
+
+    sql = "SELECT survey_id, survey, reservation_id from survey"
+    cur.execute(sql)
+    tm = time.strftime('%Y%m%d')
+    print (tm)
+
+    data_list = cur.fetchall()    
+    return render_template('manager/survey.html', data_list = data_list)
 
 @app.route('/manager/task')
 def mtask():
@@ -843,6 +853,39 @@ def delete():
         conn.close()
     return render_template('/manager/delete.html', error=error)
 
+@app.route('/manager/delete_survey', methods=['post', 'get'])
+def delete_survey():
+    error = None
+    if request.method == 'POST':
+
+        survey_id = request.form['survey_id']
+
+        print (survey_id)
+
+        conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+        cursor = conn.cursor()
+
+        query = "SELECT survey_id FROM survey WHERE survey_id = '%s' " % (survey_id)
+
+        cursor.execute(query)
+        data = cursor.fetchall()
+        print(data)
+
+        if data:
+            print("start delete")
+            query = "DELETE FROM survey where survey_id = %s "
+            value = (survey_id)
+            cursor.execute(query,value)
+            data = cursor.fetchall()
+            print (data)
+            if not data:
+                conn.commit()
+                print (data)
+                return render_template('manager/delete_survey_success.html', error=error)
+
+        cursor.close()
+        conn.close()
+    return render_template('/manager/delete_survey.html', error=error)
 
 @app.route('/manager/delete_task', methods=['post', 'get'])
 def delete_task():
