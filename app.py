@@ -238,21 +238,6 @@ def mindex():
         return render_template('manager/login.html')
     return render_template('manager/index.html')
 
-@app.route('/manager/customer')
-def mcustomer():
-    if not session.get('username'):
-        return render_template('manager/login.html')
-
-    db = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
-    cur = db.cursor()
-
-    sql = "select customer_name, phone_number, car_num from reservation"
-    cur.execute(sql)
-
-    data_list = cur.fetchall()
-
-    return render_template('manager/customer.html', data_list=data_list)
-
 @app.route('/manager/employee')
 def memployee():
     if not session.get('username'):
@@ -299,7 +284,19 @@ def mpassword():
 def mproduct():
     if not session.get('username'):
         return render_template('manager/login.html')
-    return render_template('manager/product.html')
+
+    db = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+    cur = db.cursor()
+
+    sql = "SELECT product_id, product_name, remain, price from product"
+    cur.execute(sql)
+    tm = time.strftime('%Y%m%d')
+    print (tm)
+
+    data_list = cur.fetchall()
+
+    return render_template('manager/product.html', data_list = data_list)
+
 
 @app.route('/manager/register')
 def mregister():
@@ -477,6 +474,36 @@ def taskregist():
         cursor.close()
         conn.close()
     return render_template('manager/register_task.html')
+
+
+@app.route('/manager/register_product', methods=['post', 'get'])
+def productregist():
+    error = None
+    if request.method == 'POST':
+
+        product_id = request.form['product_id']
+        product_name = request.form['product_name']
+        amount = request.form['amount']
+        price = request.form['price']
+
+
+        conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+        cursor = conn.cursor()
+
+        query = "INSERT INTO product(product_id, product_name, remain, price) values (%s, %s, %s, %s)"
+        value = (product_id, product_name, amount, price)
+        cursor.execute(query, value)
+        data = cursor.fetchall()
+        print (data)
+        if not data:
+            conn.commit()
+            print (data)
+            return render_template('manager/register_product_success.html', error=error)
+
+        cursor.close()
+        conn.close()
+    return render_template('manager/register_product.html')
+
 
 
 @app.route('/home')
@@ -671,7 +698,7 @@ def psearch():
         conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
         cursor = conn.cursor()
 
-        query = "SELECT car_num, room_id, parking_location from parking where room_id = '%s'" % (search_room_id)
+        query = "SELECT car_num, room_id, parking_location from reservation where room_id = '%s'" % (search_room_id)
         cursor.execute(query)
         data_list = cursor.fetchall()
         print(data_list)
@@ -928,6 +955,47 @@ def delete_task():
         cursor.close()
         conn.close()
     return render_template('/manager/delete_task.html', error=error)
+
+
+@app.route('/manager/delete_product', methods=['post', 'get'])
+def delete_product():
+    error = None
+    if request.method == 'POST':
+
+        product_id = request.form['product_id']
+
+        conn = pymysql.connect(host='localhost', user='root', passwd='1234', db='jmk', charset='utf8')
+        cursor = conn.cursor()
+
+        query = "SELECT product_id FROM product WHERE product_id = '%s' " % (product_id)
+
+        cursor.execute(query)
+        data = cursor.fetchall()
+        print(data)
+
+        if data:
+            print("start delete")
+            query = "DELETE FROM product where product_id = %s "
+            value = (product_id)
+            cursor.execute(query,value)
+            data = cursor.fetchall()
+            print (data)
+            if not data:
+                conn.commit()
+                print (data)
+                return render_template('manager/delete_product_success.html', error=error)
+            else:
+                conn.rollback()
+                print (data)
+                return render_template('manager/delete_product_fail.html', error=error)
+        else:
+            print("NO")
+            return render_template('manager/delete_product_fail.html', error=error)
+
+
+        cursor.close()
+        conn.close()
+    return render_template('/manager/delete_product.html', error=error)
 
 @app.route('/manager/register_info', methods=['post', 'get'])
 def regist_info():

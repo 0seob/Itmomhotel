@@ -133,7 +133,7 @@
         <div class="container">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-12 text-center">
-                      <form action="#" class="filter__form">
+                      <form action="/reservation" method="post" class="filter__form">
                           <div class="filter__form__item">
                               <p>체크 인</p>
                               <div class="filter__form__datepicker">
@@ -173,7 +173,7 @@
                                   </select>
                               </div>
                           </div>
-                          <button type="button" onclick="searchemptyroom">검색</button>
+                          <button type="submit">검색</button>
                       </form>
                 </div>
             </div>
@@ -185,39 +185,39 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-lg-12 text-center">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Image</th>
-                            <th scope="col">Class</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Capacity</th>
-                            <th scope="col">예약</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="col"><img src="{{ url_for('static', filename='customer/img/kf.png') }}" class="img-responsive"></th>
-                            <th scope="col">Suite</th>
-                            <th scope="col">Single</th>
-                            <th scope="col">1</th>
-                            <th scope="col"><button class="btn btn-outline-dark" type="submit">예약하기</button></th>
-                        </tr>
-                        <tr>
-                            <th scope="col"><img src="{{ url_for('static', filename='customer/img/kf.png') }}" class="img-responsive"></th>
-                            <th scope="col">Suite</th>
-                            <th scope="col">Double</th>
-                            <th scope="col">2</th>
-                            <th scope="col"><button class="btn btn-outline-dark" type="submit">예약하기</button></th>
-                        </tr>
-                        <tr>
-                            <th scope="col"><img src="{{ url_for('static', filename='customer/img/kf.png') }}" class="img-responsive"></th>
-                            <th scope="col">Deluxe</th>
-                            <th scope="col">Double</th>
-                            <th scope="col">2</th>
-                            <th scope="col"><button class="btn btn-outline-dark" type="submit">예약하기</button></th>
-                        </tr>
-                    </tbody>
+                <form action="/information" method="post" class="filter__form">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th scope="col">Image</th>
+                              <th scope="col">Class</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Capacity</th>
+                              <th scope="col">예약</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          {% for i in arr1 %}
+                          <tr>
+                              <th scope="col">
+                                <!-- {% if i[0][1] == "Standard" %}
+                                  <img src="{{ url_for('static', filename='customer/img/rooms/room-1.jpg') }}" class="img-responsive">
+                                {% elif i[0][1] == "Superior" %}
+                                  <img src="{{ url_for('static', filename='customer/img/rooms/room-2.jpg') }}" class="img-responsive">
+                                {% elif i[0][1] == "Deluxe" %}
+                                  <img src="{{ url_for('static', filename='customer/img/rooms/room-3.jpg') }}" class="img-responsive">
+                                {% elif i[0][1] == "Suite" %}
+                                  <img src="{{ url_for('static', filename='customer/img/rooms/room-4.jpg') }}" class="img-responsive">
+                                {% endif %} -->
+                              </th>
+                              <th scope="col">{{ i }}</th>
+                              <th scope="col">{{ i }}</th>
+                              <th scope="col">{{ i }}</th>
+                              <th scope="col"><button class="btn btn-outline-dark" type="submit">예약하기</button></th>
+                          </tr>
+                          {% endfor %}
+                      </tbody>
+                   </form>
                </table>
             </div>
         </div>
